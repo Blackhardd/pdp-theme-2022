@@ -1,0 +1,136 @@
+.select-wrapper {
+    position: relative;
+    font-size: 14px;
+    line-height: 13px;
+    text-align: left;
+}
+
+.select-wrapper--active {
+    z-index: 100;
+}
+
+fieldset[disabled] .select-wrapper,
+.select-wrapper--disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.select-hidden-input {
+    display: none;
+}
+
+.select-input {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    width: 100%;
+    padding: 17px 50px 16px 18px;
+    background: #FFFFFF;
+    border: 1px solid #AA957C;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    transition: border-color 500ms ease;
+}
+
+.select-input--icon {
+    padding-left: 45px;
+}
+
+.select-wrapper--error .select-input {
+    border-color: red;
+}
+
+.select-input-placeholder {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.select-arrow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 20px;
+    height: 100%;
+}
+
+.select-arrow > svg {
+    fill: #000000;
+    transition: transform 200ms ease;
+}
+
+.select-input--opened .select-arrow > svg {
+    transform: rotateZ(-90deg);
+}
+
+.select-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 19px;
+    height: 100%;
+}
+
+.select-icon > svg {
+    fill: #000000;
+    transition: fill 200ms ease;
+}
+
+.select-input--opened .select-icon > svg {
+    fill: #AA957C;
+}
+
+.select-dropdown {
+    position: absolute;
+    display: none;
+    top: 100%;
+    right: 0;
+    left: 0;
+    max-height: 300px;
+    margin-top: 6px;
+    padding: 17px 0;
+    background: #FFFFFF;
+    border: 1px solid #AA957C;
+    border-radius: 4px;
+    transform: translateY(-6px);
+    opacity: 0;
+    z-index: 100;
+    overflow-y: auto;
+    transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.select-dropdown--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.select-input--opened + .select-dropdown {
+    display: block;
+}
+
+.select-dropdown-item {
+    padding: 4px 21px;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.select-dropdown-item:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+.select-dropdown-item:hover {
+    color: #AA957C;
+}
+
+.select-dropdown-item[data-active] {
+    font-weight: bold;
+}
