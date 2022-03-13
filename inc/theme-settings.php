@@ -25,12 +25,6 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			->set_attribute( 'type', 'tel' ),
 		Field::make( 'text', 'phone_marketing', __( 'Номер отдела маркетинга', 'pdp_core' ) )
 			->set_attribute( 'type', 'tel' ),
-		Field::make( 'html', 'google_api_heading' )
-		    ->set_html( sprintf( '<h2>%s</h2>', 'Google API' ) ),
-		Field::make( 'text', 'google_client_id', __( 'ID клента', 'pdp' ) )
-			->set_width( 50 ),
-		Field::make( 'text', 'google_secret', __( 'Секретный код клента', 'pdp' ) )
-			->set_width( 50 ),
 		Field::make( 'html', 'header_heading' )
 			->set_html( sprintf( '<h2>%s</h2>', 'Шапка сайта' ) ),
 		Field::make( 'select', 'header_show_salons_dropdown', __( 'Выпадающий список салонов', 'pdp' ) )
@@ -97,6 +91,23 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 				Field::make( 'image', 'cover2x', __( 'Обложка (2x)', 'pdp' ) )
 			        ->set_width( 25 )
 			) )
+	) )
+	->add_tab( __( 'Прайслисты', 'pdp' ), array(
+		Field::make( 'html', 'google_api_heading' )
+		     ->set_html( sprintf( '<h2>%s</h2>', 'Google API' ) ),
+		Field::make( 'text', 'google_client_id', __( 'ID клента', 'pdp' ) )
+		     ->set_width( 50 ),
+		Field::make( 'text', 'google_secret', __( 'Секретный код клента', 'pdp' ) )
+		     ->set_width( 50 ),
+		Field::make( 'html', 'prices_autoupdate_heading' )
+		     ->set_html( sprintf( '<h2>%s</h2>', 'Ежедневное обновление' ) ),
+		Field::make( 'select', 'prices_autoupdate_enabled', __( 'Включено', 'pdp' ) )
+			->set_options( array(
+				'true'      => __( 'Да', 'pdp' ),
+				'false'     => __( 'Нет', 'pdp' )
+			) )
+			->set_default_value( 'false' )
+			->set_width( 100 )
 	) )
 	->add_tab( __( 'Уведомления', 'pdp' ), array(
 		Field::make( 'textarea', 'email_recipients', __( 'Получатели (через запятые)', 'pdp' ) ),

@@ -384,7 +384,7 @@ function pdp_get_salons( $order = 'ASC', $lang = false ){
 	);
 
 	if( $lang ){
-		$params['lang'] = $lang;
+		$params['lang'] = $lang === 'all' ? '' : $lang;
 	}
 	else{
 	    $params['lang'] = pll_current_language();
