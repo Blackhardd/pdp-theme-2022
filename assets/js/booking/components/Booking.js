@@ -100,7 +100,7 @@ class Booking {
             this._cart.salon = this.$salonSelect.value
         }
 
-        if(_this._cart.hair){
+        if(this._cart.hair){
             this.$hairLengthSelect.value = this._cart.hair
             this.$hairLengthSelect.dispatchEvent(new Event('change'))
             this.$cartHairLengthSelect.value = this._cart.hair
