@@ -119,7 +119,7 @@ class HeaderCartComponent {
     }
 
     validateCart(){
-        !this._cart || !this._cart.services.length ? this.$elements.submit.setAttribute('disabled', '') : this.$elements.submit.removeAttribute('disabled')
+        !this._cart ? this.$elements.submit.setAttribute('disabled', '') : this.$elements.submit.removeAttribute('disabled')
     }
 
 
