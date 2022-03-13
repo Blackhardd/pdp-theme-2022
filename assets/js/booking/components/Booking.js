@@ -85,16 +85,22 @@ class Booking {
         this._cart = new Cart()
 
         if(this._cart.salon && !new URLSearchParams(window.location.search).get('salonId')){
-            this.$salonSelect.value = this._cart.salon
+            const currentSalon = bookingData.salons.filter(salon => {
+                for(const [key, value] of Object.entries(salon)){
+                    return value === this._cart.salon
+                }
+            })[0][booking_i18n.lang]
+
+            this.$salonSelect.value = currentSalon
             this.$salonSelect.dispatchEvent(new Event('change'))
-            this.$cartSalonSelect.value = this._cart.salon
+            this.$cartSalonSelect.value = currentSalon
             this.$cartSalonSelect.dispatchEvent(new Event('change'))
         }
         else{
             this._cart.salon = this.$salonSelect.value
         }
 
-        if(this._cart.hair){
+        if(_this._cart.hair){
             this.$hairLengthSelect.value = this._cart.hair
             this.$hairLengthSelect.dispatchEvent(new Event('change'))
             this.$cartHairLengthSelect.value = this._cart.hair
@@ -103,10 +109,6 @@ class Booking {
 
         if(this._cart.master){
             this.$masterSwitch.checked = true
-        }
-
-        if(!this._cart.salon){
-            this._cart.salon = this.$salonSelect.value
         }
 
         this.renderCart()

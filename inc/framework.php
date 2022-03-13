@@ -472,6 +472,30 @@ function pdp_get_salons_grouped_by_city(){
 
 
 /**
+ *  Getting multilingual salon ID's
+ */
+
+function pdp_get_multilingual_salon_ids(){
+    $langs = pll_languages_list();
+    $salons = pdp_get_salons();
+
+    $data = array();
+
+    foreach( $salons as $salon ) :
+        $ids = array();
+
+        foreach( $langs as $lang ) :
+            $ids[$lang === 'uk' ? 'ua' : $lang] = pll_get_post( $salon->ID, $lang );
+        endforeach;
+
+        $data[] = $ids;
+    endforeach;
+
+    return $data;
+}
+
+
+/**
  *  Getting salon cities map data
  */
 

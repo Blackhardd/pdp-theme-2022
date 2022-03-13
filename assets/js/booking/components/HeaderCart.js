@@ -58,7 +58,13 @@ class HeaderCartComponent {
         this._cart = new Cart()
 
         if(this._cart.salon){
-            this.$elements.fields.salon.value = this._cart.salon
+            const currentSalon = headerCartData.salons.filter(salon => {
+                for(const [key, value] of Object.entries(salon)){
+                    return value === this._cart.salon
+                }
+            })[0][headerCart_i18n.lang]
+
+            this.$elements.fields.salon.value = currentSalon
             this.$elements.fields.salon.dispatchEvent(new Event('change'))
         }
 

@@ -162,9 +162,20 @@ function pdp_scripts(){
 		wp_enqueue_script( 'header-cart', PDP_THEME_URL . '/assets/js/booking/components/HeaderCart.js', array( 'forms' ), PDP_THEME_VERSION, true );
 		wp_enqueue_script( 'header-cart-mobile', PDP_THEME_URL . '/assets/js/booking/components/HeaderCartMobile.js', array( 'forms' ), PDP_THEME_VERSION, true );
 
+		wp_localize_script( 'header-cart', 'headerCartData', array(
+			'salons'    => pdp_get_multilingual_salon_ids()
+		) );
+
 		wp_localize_script( 'header-cart', 'headerCart_i18n', array(
 			'lang'      => pdp_get_current_language(),
-			'loading'   => __( 'Загрузка', 'pdp' )
+		) );
+
+		wp_localize_script( 'header-cart-mobile', 'headerCartMobileData', array(
+			'salons'    => pdp_get_multilingual_salon_ids()
+		) );
+
+		wp_localize_script( 'header-cart-mobile', 'headerCartMobile_i18n', array(
+			'lang'      => pdp_get_current_language(),
 		) );
 	}
 
@@ -174,7 +185,8 @@ function pdp_scripts(){
 		wp_enqueue_script( 'booking', PDP_THEME_URL . '/assets/js/booking/components/Booking.js', array( 'forms' ), PDP_THEME_VERSION, true );
 
 		wp_localize_script( 'booking', 'bookingData', array(
-			'restUrl'   => untrailingslashit( esc_url_raw( rest_url() ) )
+			'restUrl'   => untrailingslashit( esc_url_raw( rest_url() ) ),
+			'salons'    => pdp_get_multilingual_salon_ids()
 		) );
 
 		wp_localize_script( 'booking', 'booking_i18n', array(
