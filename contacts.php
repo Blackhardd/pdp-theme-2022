@@ -10,7 +10,7 @@ get_header();
 
 $active_salon = intval( $_GET['salonId'] );
 
-$main_city = pdp_get_main_city();
+$main_city = pdp_get_main_city( pll_current_language() );
 $salons_grouped = pdp_get_salons_grouped_by_city();
 $salons_grouped = array( $main_city => $salons_grouped[$main_city] ) + $salons_grouped;
 
