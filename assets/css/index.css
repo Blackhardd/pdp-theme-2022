@@ -2461,8 +2461,9 @@ h3.title__heading {
     margin-right: 23px;
 }
 
-.contacts-salon-form__title > span {
+.contacts-salon-form__title > a {
     display: inline-block;
+    color: var(--black-color);
     text-decoration: underline;
 }
 
@@ -2616,6 +2617,10 @@ h3.title__heading {
     align-items: flex-end;
 }
 
+.salon-info__content {
+    padding-right: 120px;
+}
+
 .salon-info__name {
     margin-bottom: 23px;
     color: var(--brown-color);
@@ -2630,6 +2635,11 @@ h3.title__heading {
     font-weight: 500;
     font-size: 36px;
     line-height: 42px;
+}
+
+.salon-info__title > svg {
+    fill: var(--black-color);
+    margin-right: 10px;
 }
 
 .salon-info__title > a {
@@ -2656,6 +2666,7 @@ h3.title__heading {
     font-weight: 500;
     line-height: 26px;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .salon-info__contacts > a:first-child {
@@ -2682,9 +2693,9 @@ h3.title__heading {
 
 .salon-info__slider {
     position: relative;
-    max-width: 515px;
+    flex-shrink: 0;
+    width: 515px;
     margin-right: 0 !important;
-    margin-left: 200px !important;
 }
 
 .salon-info__slider .swiper-scrollbar {
@@ -5076,6 +5087,10 @@ fieldset:disabled .booking-cart-item__button {
         flex-direction: column-reverse;
     }
 
+    .salon-info__content {
+        padding-right: unset;
+    }
+
     .salon-info__name {
         margin-bottom: 6px;
         font-size: 16px;
@@ -5090,14 +5105,16 @@ fieldset:disabled .booking-cart-item__button {
     .salon-info__contacts {
         flex-direction: column;
         align-items: stretch;
+        margin-bottom: 38px;
     }
 
     .salon-info__contacts > a:first-child {
         margin-right: unset;
+        margin-bottom: 18px;
     }
 
     .salon-info__slider {
-        max-width: unset;
+        width: unset;
         margin-left: unset !important;
         margin-bottom: 30px;
     }
@@ -5531,6 +5548,14 @@ fieldset:disabled .booking-cart-item__button {
 
     #booking {
         margin-bottom: 18px;
+    }
+
+    #salon-main {
+        margin-bottom: 64px;
+    }
+
+    #salon-carousel {
+        margin-bottom: 84px;
     }
 
 

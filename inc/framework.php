@@ -398,6 +398,7 @@ function pdp_get_salons_data(){
 		$lat = carbon_get_post_meta( $salon->ID, 'latitude' );
 		$lng = carbon_get_post_meta( $salon->ID, 'longitude' );
 		$phone = carbon_get_post_meta( $salon->ID, 'phone' );
+		$instagram = carbon_get_post_meta( $salon->ID, 'instagram' );
 
 		if( $link && $lat && $lng ){
 			$salon_data = array(
@@ -406,6 +407,7 @@ function pdp_get_salons_data(){
 				'title'             => $title ? $title : false,
 				'phone'             => $phone ? $phone : false,
 				'city'              => wp_get_post_terms( $salon->ID, 'city' )[0]->name,
+				'instagram'         => $instagram ? $instagram : false,
 				'link'              => $link,
 				'location'          => array(
 					'lat'               => floatval( $lat ),

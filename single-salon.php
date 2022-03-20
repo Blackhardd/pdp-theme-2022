@@ -11,7 +11,10 @@ $title = carbon_get_the_post_meta( 'title' );
             <div class="salon-info">
                 <div class="salon-info__content">
                     <?=$title ? "<div class='salon-info__name'>{$title}</div>" : ''; ?>
-                    <h1 class="salon-info__title"><a href="<?=carbon_get_the_post_meta( 'map_link' ); ?>" target="_blank"><?php the_title(); ?></a></h1>
+                    <h1 class="salon-info__title">
+                        <svg width="11" height="22" fill="none"><path d="M6 0c.27.05.54.1.8.17 2.2.6 3.6 2.05 4.08 4.3a5.54 5.54 0 0 1-3.66 6.42c-.43.15-.88.22-1.35.33v10.21c0 .1 0 .22-.04.32-.04.17-.17.25-.35.25a.33.33 0 0 1-.33-.25c-.03-.1-.03-.22-.03-.32V11.17a5.26 5.26 0 0 1-1.92-.5A5.31 5.31 0 0 1 .05 6.33 5.44 5.44 0 0 1 2.81.71C3.41.34 4.08.14 4.78.04c.07 0 .14-.03.2-.04H6Zm-.89 4.11c0-.82-.65-1.49-1.45-1.5-.8 0-1.47.68-1.47 1.5 0 .8.67 1.48 1.48 1.48.79 0 1.44-.67 1.44-1.48Z" /></svg>
+                        <a href="<?=carbon_get_the_post_meta( 'map_link' ); ?>" target="_blank"><?php the_title(); ?></a>
+                    </h1>
                     <div class="salon-info__desc"><?php the_content(); ?></div>
 
                     <div class="salon-info__contacts">
@@ -25,7 +28,7 @@ $title = carbon_get_the_post_meta( 'title' );
 	                    <?php if( $instagram = carbon_get_the_post_meta( 'instagram' ) ) : ?>
                             <a href="<?=$instagram; ?>">
                                 <svg width="22" height="22" fill="none"><path d="M10.98.02c1.7 0 3.4-.04 5.1 0a5.83 5.83 0 0 1 5.09 2.9c.59.94.83 1.98.83 3.1V16a5.98 5.98 0 0 1-5.89 6H5.92A5.99 5.99 0 0 1 0 16V6.05A5.95 5.95 0 0 1 5.96.02h5.02Zm.04 2H6.1A3.99 3.99 0 0 0 2 6.09V16a3.98 3.98 0 0 0 4.05 4.06h9.88c.27 0 .55-.04.8-.07A3.99 3.99 0 0 0 19.98 16V6.08c0-.76-.17-1.49-.62-2.15a3.87 3.87 0 0 0-3.43-1.87c-1.63-.03-3.3-.03-4.92-.03Z" fill="#000"/><path d="M16.31 11.01c0 2.91-2.39 5.27-5.26 5.27a5.26 5.26 0 1 1 5.27-5.27Zm-5.3 3.12a3.1 3.1 0 0 0 3.15-3.08 3.15 3.15 0 1 0-3.15 3.08ZM17.84 5.25c0 .6-.45 1.04-1.03 1.04-.6 0-1.08-.45-1.08-1.04 0-.59.45-1.04 1.04-1.04.59 0 1.07.45 1.07 1.04Z" fill="#000"/></svg>
-                                <span><?=$instagram; ?></span>
+                                <span>@<?=str_replace( '/', '', parse_url( $instagram, PHP_URL_PATH ) ); ?></span>
                             </a>
 	                    <?php endif; ?>
                     </div>
