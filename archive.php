@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -15,7 +16,7 @@
 get_header();
 
 if( have_posts() ){
-    if( is_home() || is_tag() ){
+    if( !is_home_page() && ( is_home() || is_tag() ) ){
         get_template_part( 'templates/blog/archive/page' );
     }
     else if( is_post_type_archive( 'salon' ) ){

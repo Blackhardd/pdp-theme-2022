@@ -1,4 +1,5 @@
 <?php
+
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -108,6 +109,10 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			) )
 			->set_default_value( 'false' )
 			->set_width( 100 )
+	) )
+	->add_tab( 'Instagram', array(
+		Field::make( 'text', 'instagram_app_id', __( 'App ID', 'pdp' ) ),
+		Field::make( 'text', 'instagram_app_secret', __( 'App Secret', 'pdp' ) )
 	) )
 	->add_tab( __( 'Уведомления', 'pdp' ), array(
 		Field::make( 'textarea', 'email_recipients', __( 'Получатели (через запятые)', 'pdp' ) ),

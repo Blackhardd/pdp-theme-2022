@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(async function($){
     initHeader()
     initHeaderSalonsMenu()
     initSmoothScroll()
@@ -14,6 +14,7 @@ jQuery(document).ready(function($){
     initSalonsSlider()
     initVacancies()
 
+    await initVideoCaching()
     initVideoLazyLoading()
 
     initViewportHeightFix()
@@ -432,8 +433,29 @@ jQuery(document).ready(function($){
         }
     }
 
+    async function initVideoCaching(){
+        if(document.querySelectorAll('video.lazy').length){
+            let mediaSources = []
+            let mediaBlobUrls = []
+            const $videos = document.querySelectorAll('video.lazy')
+
+            for(const $video of $videos){
+                const $source = $video.querySelector('source')
+
+                if(!mediaSources.includes($source.dataset.src)){
+                    mediaSources.push($source.dataset.src)
+                    const blob = await fetch($source.dataset.src).then(res => res.blob())
+                    const blobUrl = URL.createObjectURL(blob)
+                    mediaBlobUrls.push(blobUrl)
+                }
+
+                $source.dataset.src = mediaBlobUrls[mediaSources.indexOf($source.dataset.src)]
+            }
+        }
+    }
+
     function initVideoLazyLoading(){
-        if($('video.lazy').length && 'IntersectionObserver' in window){
+        if($('.site-content video.lazy').length && 'IntersectionObserver' in window){
             const lazyVideos = [].slice.call(document.querySelectorAll('video.lazy'))
 
             let lazyVideoObserver = new IntersectionObserver(function(entries, observer){

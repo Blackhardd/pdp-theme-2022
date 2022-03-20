@@ -115,18 +115,8 @@ function pdp_pagination_template( $template, $class ){
 
 function pdp_register_image_sizes(){
 	if( function_exists( 'add_image_size' ) ){
-		add_image_size( 'salons-slider-thumb', 540, 424, true );
-		add_image_size( 'services-slider-thumb', 340, 340, true );
-		add_image_size( 'salon-carousel-large', 1260, 800, true );
-		add_image_size( 'salon-carousel-nav', 248, 154, true );
-		add_image_size( 'salon-master', 291, 400, true );
-
-		/**
-		 *  Blog
-		 */
-
-		add_image_size( 'blog-header', 345, 345, true );
-		add_image_size( 'blog-thumbnail', 300, 300, true );
+		add_image_size( 'instagram-card-1x', 124, 124, true );
+		add_image_size( 'instagram-card-2x', 248, 248, true );
 	}
 }
 
@@ -517,6 +507,15 @@ function pdp_get_salon_cities_map_data(){
 
 function pdp_get_salon_card( $id, $slider = false ){
     get_template_part( 'templates/salon/card', null, ['id' => $id, 'slider' => $slider] );
+}
+
+
+/**
+ *  Getting Instagram feed items
+ */
+
+function pdp_get_instagram_feed_items(){
+    return array_slice( get_option( 'instagram_feed_uploads', array() ), 0, 9 );
 }
 
 
