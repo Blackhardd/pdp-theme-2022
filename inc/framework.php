@@ -44,8 +44,8 @@ function pdp_pingback_header(){
 add_action( 'wp_head', 'pdp_add_critical_css' );
 
 function pdp_add_critical_css(){
-    if( is_readable( PDP_THEME_DIR . '/assets/css/critical/header.css' ) ) : ?>
-        <style id="header-critical-css"><?=file_get_contents( PDP_THEME_DIR . '/assets/css/critical/header.css' ); ?></style>
+    if( is_readable( PDP_THEME_DIR . '/assets/css/critical/header.min.css' ) ) : ?>
+        <style id="header-critical-css"><?=file_get_contents( PDP_THEME_DIR . '/assets/css/critical/header.min.css' ); ?></style>
     <?php endif;
 }
 

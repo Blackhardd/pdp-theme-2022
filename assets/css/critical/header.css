@@ -49,7 +49,7 @@
  */
 
 .logo--header {
-    margin-right: 68px;
+    margin-right: auto;
 }
 
 .logo--header svg {
@@ -162,7 +162,7 @@
     display: inline-flex;
     align-items: center;
     height: 100%;
-    margin: 0 23px;
+    margin: 0 20px;
     padding: 30px 0;
 }
 
@@ -373,7 +373,7 @@
 .header-actions {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    margin-left: 40px;
 }
 
 .header-actions > .btn:last-child {
@@ -571,6 +571,10 @@
 
 .header-cart--desktop {
     margin-left: 8px;
+}
+
+.header-cart--desktop .header-cart__button {
+    padding: 15px 24px 14px;
 }
 
 .header-cart--mobile {
