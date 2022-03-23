@@ -88,15 +88,9 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
                         <img data-src="<?=pdp_get_theme_image( 'home/instagram/second-card-1x.png' ); ?>" data-srcset="<?=pdp_get_theme_image( 'home/instagram/second-card-1x.png' ); ?> 1x, <?=pdp_get_theme_image( 'home/instagram/second-card-2x.png' ); ?> 2x" class="lazyload">
                     </div>
 
-                    <?php if( get_option( 'instagram_token_expires_in' ) && get_option( 'instagram_token_expires_in' ) < time() ) : ?>
-                        <div class="instagram__grid">
-                            <?php get_template_part( 'templates/widgets/instagram-feed' ); ?>
-                        </div>
-                    <?php else : ?>
-                        <div class="instagram__grid">
-                            <img data-src="<?=pdp_get_theme_image( 'home/instagram/grid-1x.jpg' ); ?>" data-srcset="<?=pdp_get_theme_image( 'home/instagram/grid-1x.jpg' ); ?> 1x, <?=pdp_get_theme_image( 'home/instagram/grid-2x.jpg' ); ?> 2x" class="lazyload">
-                        </div>
-                    <?php endif; ?>
+                    <div class="instagram__grid">
+                        <?php get_template_part( 'templates/widgets/instagram-feed' ); ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -332,7 +326,7 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
                                     "@type": "Answer",
                                     "text": "<?=preg_replace('#\s{2,}#', '', strip_tags( $item['content'] ) ); ?>"
                                 }
-                            }<?=$key !== count( $key ) - 1 ? ',' : ''; ?>
+                            }<?=$key <= count( $key ) - 1 ? ',' : ''; ?>
                         <?php endforeach; ?>
                     ]
                 }

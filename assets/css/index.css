@@ -1373,8 +1373,6 @@ h3.title__heading {
 
 .instagram-media-card {
     position: relative;
-    width: 124px;
-    height: 124px;
 }
 
 .instagram-media-card::before {
@@ -1392,6 +1390,16 @@ h3.title__heading {
 
 .instagram-media-card:hover::before {
     opacity: 0.5;
+}
+
+.instagram-media-card__icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.instagram-media-card__icon svg {
+    fill: #FFFFFF;
 }
 
 .instagram-media-card a,
@@ -5759,6 +5767,11 @@ fieldset:disabled .booking-cart-item__button {
     #post-related .title__heading {
         font-size: 24px;
         line-height: 32px;
+    }
+
+
+    .instagram-feed {
+        grid-template-columns: repeat(3, 1fr);
     }
 
 
