@@ -201,22 +201,54 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
 
     <section id="home-advantages">
         <div class="container">
+            <?php
+
+            $advantages = carbon_get_the_post_meta( 'advantages_list' );
+
+            ?>
+
             <div class="title title--center">
                 <h2 class="title__heading"><?=carbon_get_the_post_meta( 'advantages_title' ); ?></h2>
             </div>
 
             <div class="advantages">
-	            <?php foreach( carbon_get_the_post_meta( 'advantages_list' ) as $item ) : ?>
-                    <div class="advantage">
-                        <div class="advantage__icon">
-                            <svg width="18" height="18" fill="none">
-                                <path d="M14.4 3.6V0l-3.6 3.6H7.2L0 10.8h3.6l3.6-3.6v3.6h3.6l-3.6 3.6V18l7.2-7.2V7.2L18 3.6h-3.6Z" fill="#0E0D0A"/>
-                            </svg>
-                        </div>
+                <div class="advantages__items">
+                    <div class="advantages__short">
+	                    <?php foreach( $advantages as $key => $item ) : ?>
+		                    <?php if( $key < 6 ) : ?>
+                                <div class="advantage">
+                                    <div class="advantage__icon">
+                                        <svg width="18" height="18" fill="none">
+                                            <path d="M14.4 3.6V0l-3.6 3.6H7.2L0 10.8h3.6l3.6-3.6v3.6h3.6l-3.6 3.6V18l7.2-7.2V7.2L18 3.6h-3.6Z" fill="#0E0D0A"/>
+                                        </svg>
+                                    </div>
 
-                        <div class="advantage__content"><?=$item['content']; ?></div>
+                                    <div class="advantage__content"><?=$item['content']; ?></div>
+                                </div>
+		                    <?php endif; ?>
+	                    <?php endforeach; ?>
                     </div>
-	            <?php endforeach; ?>
+
+                    <div class="advantages__rest">
+	                    <?php foreach( $advantages as $key => $item ) : ?>
+		                    <?php if( $key > 5 ) : ?>
+                                <div class="advantage">
+                                    <div class="advantage__icon">
+                                        <svg width="18" height="18" fill="none">
+                                            <path d="M14.4 3.6V0l-3.6 3.6H7.2L0 10.8h3.6l3.6-3.6v3.6h3.6l-3.6 3.6V18l7.2-7.2V7.2L18 3.6h-3.6Z" fill="#0E0D0A"/>
+                                        </svg>
+                                    </div>
+
+                                    <div class="advantage__content"><?=$item['content']; ?></div>
+                                </div>
+		                    <?php endif; ?>
+	                    <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <?php if( count( $advantages ) > 6 ) : ?>
+                    <div class="advantages__more"><span><?=__( 'Показать больше', 'pdp' ); ?></span></div>
+                <?php endif; ?>
             </div>
         </div>
     </section>

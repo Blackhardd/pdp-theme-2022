@@ -1882,11 +1882,44 @@ h3.title__heading {
  */
 
 .advantages {
-    display: grid;
-    grid-template-columns: 1fr minmax(auto, 470px);
-    grid-gap: 48px 88px;
     max-width: 1072px;
     margin: 0 auto;
+}
+
+.advantages__short,
+.advantages__rest {
+    grid-template-columns: 1fr minmax(auto, 470px);
+    grid-gap: 48px 88px;
+}
+
+.advantages__short {
+    display: grid;
+}
+
+.advantages__rest {
+    display: none;
+    margin-top: 48px;
+}
+
+.advantages__more {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.advantages__more > span {
+    color: var(--brown-color);
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.advantages--active .advantages__rest {
+    display: grid;
+}
+
+.advantages--active .advantages__more {
+    display: none;
 }
 
 .advantage {
@@ -4995,7 +5028,7 @@ fieldset:disabled .booking-cart-item__button {
     }
 
 
-    .advantages {
+    .advantages__items {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -5331,7 +5364,7 @@ fieldset:disabled .booking-cart-item__button {
     }
 
 
-    .advantages {
+    .advantages__items {
         grid-template-columns: 1fr;
     }
 

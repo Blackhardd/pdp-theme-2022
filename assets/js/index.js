@@ -6,6 +6,7 @@ jQuery(document).ready(async function($){
     initModals()
     initCarousels()
     initHomeSlider()
+    initAdvantages()
     initTestimonials()
     initFaq()
     initContacts()
@@ -234,6 +235,14 @@ jQuery(document).ready(async function($){
                         autoHeight: false
                     }
                 },
+            })
+        }
+    }
+
+    function initAdvantages(){
+        if($('.advantages').length){
+            $('.advantages__more > span').on('click', function(){
+                $(this).closest('.advantages').addClass('advantages--active')
             })
         }
     }
