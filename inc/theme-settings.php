@@ -28,15 +28,9 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			->set_attribute( 'type', 'tel' ),
 		Field::make( 'html', 'header_heading' )
 			->set_html( sprintf( '<h2>%s</h2>', 'Шапка сайта' ) ),
-		Field::make( 'select', 'header_show_salons_dropdown', __( 'Выпадающий список салонов', 'pdp' ) )
-			->set_options( array(
-				'0' => __( 'Скрывать', 'pdp' ),
-				'1' => __( 'Показывать', 'pdp' )
-			) )
-			->set_width( 30 ),
 		Field::make( 'select', 'main_salon', __( 'Салон по умолчанию', 'pdp' ) )
 		     ->set_options( $salons )
-		     ->set_width( 30 ),
+		     ->set_width( 50 ),
 		Field::make( 'association', 'main_city', __( 'Основной город', 'pdp' ) )
 			->set_types( array(
 				array(
@@ -45,7 +39,7 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 				)
 			) )
 			->set_max( 1 )
-			->set_width( 40 ),
+			->set_width( 50 ),
 		Field::make( 'html', 'forms_heading' )
 			->set_html( sprintf( '<h2>%s</h2>', 'Формы' ) ),
 		Field::make( 'select', 'forms_show_salon_select', __( 'Выбор салона в формах', 'pdp' ) )
