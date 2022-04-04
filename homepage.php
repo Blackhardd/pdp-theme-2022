@@ -358,7 +358,7 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
                                     "@type": "Answer",
                                     "text": "<?=preg_replace('#\s{2,}#', '', strip_tags( $item['content'] ) ); ?>"
                                 }
-                            }<?=$key <= count( $key ) - 1 ? ',' : ''; ?>
+                            }<?=$key <= count( $faq ) - 1 ? ',' : ''; ?>
                         <?php endforeach; ?>
                     ]
                 }

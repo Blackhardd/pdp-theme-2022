@@ -34,7 +34,7 @@
 										<div class="form-col">
 											<select name="salon" data-icon="location" data-confirm="<?=__( 'Смена салона удалит все услуги из корзины. Вы уверенны?', 'pdp' ); ?>">
 												<?php foreach( pdp_get_salons_with_pricelist() as $key => $salon ) : ?>
-													<option value="<?=$salon['id']; ?>" <?=$salon['id'] === $main_salon ? 'selected' : ''; ?>><?="{$salon['city']}, {$salon['name']}"; ?></option>
+													<option value="<?=$salon['id']; ?>"><?="{$salon['city']}, {$salon['name']}"; ?></option>
 												<?php endforeach; ?>
 											</select>
 										</div>

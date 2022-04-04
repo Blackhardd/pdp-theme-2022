@@ -15,7 +15,7 @@ $current_language = pdp_get_current_language();
 		<?php foreach( $categories as $category ) : ?>
 			<div class="service-card swiper-slide">
 				<a href="<?=add_query_arg( 'category', $category['slug'], get_permalink( pll_get_post( 66 ) ) ); ?>">
-					<img data-src="<?=$category['cover']['1x']; ?>" data-srcset="<?=$category['cover']['1x']; ?> 1x, <?=$category['cover']['2x']; ?> 2x" alt="<?=$category['title'][$current_language]; ?>" class="service-card__image lazyload">
+					<img data-src="<?=$category['cover']['1x']; ?>" data-srcset="<?=$category['cover']['1x']; ?> 1x, <?=$category['cover']['2x']; ?> 2x" alt="<?=$category['name'][$current_language]; ?>" class="service-card__image lazyload">
 
 					<div class="service-card__title">
 						<div class="service-card__name"><?=$category['name'][$current_language]; ?></div>
