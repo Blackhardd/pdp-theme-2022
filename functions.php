@@ -21,8 +21,6 @@ endif;
 
 if( !function_exists( 'pdp_setup' ) ) :
 	function pdp_setup(){
-		load_theme_textdomain( 'pdp', get_template_directory() . '/languages' );
-
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
@@ -68,11 +66,7 @@ if( !function_exists( 'pdp_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
+		// Add support for core custom logo.
 		add_theme_support(
 			'custom-logo',
 			array(
