@@ -52,7 +52,7 @@ $salons_grouped = array( $main_city => $salons_grouped[$main_city] ) + $salons_g
 	                                            <?php endif; ?>
                                             </div>
 
-                                            <div class="contacts-salon-form__contacts-desc"><?=__( 'Вы можете звонить или написать нам в любой удобный для вас меседжер.', 'pdp' ); ?></div>
+                                            <div class="contacts-salon-form__contacts-desc"><?=__( 'Вы можете позвонить или написать нам в любой удобный для вас месенджер.', 'pdp' ); ?></div>
 
                                             <?php get_template_part( 'templates/forms/salon-contact', null, ['salon' => $salon['id'], 'type' => 'mobile'] ); ?>
                                         </div>
