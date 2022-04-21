@@ -9,6 +9,12 @@ foreach( pdp_get_salons( 'ASC', false, 'ru' ) as $salon ){
 	$salons[$salon->ID] = $salon->post_title;
 }
 
+$service_categories_name_fields = array();
+
+foreach( pll_languages_list( ['hide_empty' => false] ) as $lang ){
+	$service_categories_name_fields[] = Field::make( 'text', 'title_' . $lang === 'uk' ? 'ua' : $lang, sprintf( __( 'Название (%s)', 'pdp' ), $lang === 'uk' ? 'ua' : $lang ) );
+}
+
 Container::make( 'theme_options', 'PIED-DE-POULE' )
 	->set_icon( 'none' )
 	->set_page_menu_position( 2 )
@@ -74,18 +80,14 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 	->add_tab( __( 'Категории услуг', 'pdp' ), array(
 		Field::make( 'complex', 'service_categories', __( 'Список категорий', 'pdp' ) )
 			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'text', 'title', __( 'Название (RU)', 'pdp' ) )
-					->set_width( 50 ),
-				Field::make( 'text', 'title_ua', __( 'Название (UA)', 'pdp' ) )
-					->set_width( 50 ),
+			->add_fields( array_merge( $service_categories_name_fields, array(
 				Field::make( 'text', 'slug', __( 'Ярлык', 'pdp' ) )
 			        ->set_width( 50 ),
 				Field::make( 'image', 'cover1x', __( 'Обложка (1x)', 'pdp' ) )
 			        ->set_width( 25 ),
 				Field::make( 'image', 'cover2x', __( 'Обложка (2x)', 'pdp' ) )
 			        ->set_width( 25 )
-			) )
+			) ) )
 	) )
 	->add_tab( __( 'Прайслисты', 'pdp' ), array(
 		Field::make( 'html', 'google_api_heading' )
