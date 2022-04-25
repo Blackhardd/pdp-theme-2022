@@ -199,6 +199,11 @@ select {
     margin-bottom: 60px;
 }
 
+#contacts-phones {
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+
 
 img {
     /* width: 100%; */
@@ -2364,6 +2369,37 @@ h3.title__heading {
     font-weight: bold;
     font-size: 24px;
     line-height: 23px;
+}
+
+
+/**
+ *  Contact Phones
+ */
+
+.contact-phones {
+    display: flex;
+    align-items: center;
+}
+
+.contact-phones > .contact-phones-item:first-child {
+    margin-right: 36px;
+}
+
+
+/**
+ *  Contact Phone Item
+ */
+
+.contact-phones-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-phones-item > span {
+    margin-left: 14px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
 }
 
 
@@ -5978,6 +6014,17 @@ fieldset:disabled .booking-cart-item__button {
     .title-box__subtitle {
         font-size: 14px;
         line-height: 22px;
+    }
+
+
+    .contact-phones {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    .contact-phones > .contact-phones-item:first-child {
+        margin-right: unset;
+        margin-bottom: 14px;
     }
 
 
