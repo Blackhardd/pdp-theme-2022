@@ -488,6 +488,22 @@ jQuery(document).ready(async function($){
                 lazyVideoObserver.observe(video)
             })
         }
+
+        if($('.site-header--desktop video.lazy').length && window.matchMedia('(min-width: 1220px)').matches){
+            $('.site-header--desktop video.lazy').each(function(index){
+                const $video = $(this)[0]
+
+                for(let src in $video.children){
+                    const videoSrc = $video.children[src]
+                    if(typeof videoSrc.tagName === 'string' && videoSrc.tagName === 'SOURCE'){
+                        videoSrc.src = videoSrc.dataset.src
+                    }
+                }
+
+                $video.load()
+                $video.classList.remove('lazy')
+            })
+        }
     }
 
     function initViewportHeightFix(){
