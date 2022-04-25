@@ -151,6 +151,10 @@ jQuery(document).ready(async function($){
                     $serviceInput[0].dispatchEvent(new Event('change'))
                 }
 
+                if(modal !== 'modal-booking-cart' && $('#' + modal + ' input[name="promotion"]').length && $(this).data('promotion')){
+                    $('#' + modal + ' input[name="promotion"]').val($(this).data('promotion'))
+                }
+
                 MicroModal.show(modal, options)
             }
         });

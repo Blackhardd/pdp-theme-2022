@@ -36,7 +36,7 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
                                 <?=$slide['description'] ? "<div class='slide__desc'>{$slide['description']}</div>" : ''; ?>
 
                                 <?php if( $slide['button'] ) : ?>
-                                    <a href="<?=$slide['link']; ?>" class='btn <?=$slide['button_style'] === 'outline' ? 'btn--outline' : ''; ?> <?=$slide['type'] === 'light' ? 'btn--white' : ''; ?> slide__action'><?=$slide['button']; ?></a>
+                                    <a href="<?=$slide['link']; ?>" class='btn <?=$slide['button_style'] === 'outline' ? 'btn--outline' : ''; ?> <?=$slide['type'] === 'light' ? 'btn--white' : ''; ?> slide__action' <?=$slide['promotion'] ? "data-promotion='{$slide['promotion']}'" : ''; ?>><?=$slide['button']; ?></a>
                                 <?php endif; ?>
                             </div>
                         </div>

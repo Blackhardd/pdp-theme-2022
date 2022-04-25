@@ -24,6 +24,7 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 				Field::make( 'text', 'overtitle', __( 'Надзаголовок', 'pdp' ) ),
 				Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
 				Field::make( 'text', 'description', __( 'Описание', 'pdp' ) ),
+				Field::make( 'text', 'promotion', __( 'Описание акции', 'pdp' ) ),
 				Field::make( 'text', 'button', __( 'Текст кнопки', 'pdp' ) ),
 				Field::make( 'text', 'link', __( 'Ссылка', 'pdp' ) ),
 				Field::make( 'select', 'button_style', __( 'Стиль кнопки', 'pdp' ) )

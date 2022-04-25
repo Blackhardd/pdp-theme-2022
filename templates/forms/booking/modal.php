@@ -51,6 +51,7 @@ $default_salon = carbon_get_theme_option( 'forms_default_salon' );
 	</div>
 
 	<?=!$is_show_salon_select ? "<input type='hidden' name='salon' value='{$default_salon}'>" : ''; ?>
+	<input type="hidden" name="promotion" value="">
 	<input type="hidden" name="action" value="simple_booking">
 	<input type="hidden" name="page_title" value="<?=get_the_title(); ?>">
 	<input type="hidden" name="page_url" value="<?=esc_url( get_permalink() ); ?>">
