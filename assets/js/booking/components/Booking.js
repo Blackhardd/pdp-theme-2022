@@ -92,9 +92,9 @@ class Booking {
             }).pop()
 
             if(currentSalon){
-                this.$salonSelect.value = currentSalon[0][booking_i18n.lang]
+                this.$salonSelect.value = currentSalon[booking_i18n.lang]
                 this.$salonSelect.dispatchEvent(new Event('change'))
-                this.$cartSalonSelect.value = currentSalon[0][booking_i18n.lang]
+                this.$cartSalonSelect.value = currentSalon[booking_i18n.lang]
                 this.$cartSalonSelect.dispatchEvent(new Event('change'))
             }
         }
