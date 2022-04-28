@@ -89,7 +89,7 @@ class Booking {
                 for(const [key, value] of Object.entries(salon)){
                     return value === this._cart.salon
                 }
-            })
+            }).pop()
 
             if(currentSalon){
                 this.$salonSelect.value = currentSalon[0][booking_i18n.lang]
