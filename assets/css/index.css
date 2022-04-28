@@ -3433,6 +3433,10 @@ h3.title__heading {
     align-items: center;
     flex-shrink: 0;
     right: 0;
+    top: 32px;
+}
+
+.booking-hair-length--active + .booking-master {
     top: 80px;
 }
 
