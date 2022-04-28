@@ -3402,6 +3402,7 @@ h3.title__heading {
  */
 
 .booking-options {
+    position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 36px;
@@ -3427,10 +3428,12 @@ h3.title__heading {
  */
 
 .booking-master {
+    position: absolute;
     display: none;
     align-items: center;
     flex-shrink: 0;
-    margin-left: auto;
+    right: 0;
+    top: 80px;
 }
 
 .booking-master__switch {
@@ -3452,12 +3455,13 @@ h3.title__heading {
 
 .booking-services-subcategory__header {
     margin-bottom: 20px;
+    padding-right: 250px;
 }
 
 .booking-services-subcategory__title {
     color: var(--brown-color);
     font-size: 16px;
-    line-height: 15px;
+    line-height: 16px;
     text-transform: uppercase;
 }
 
@@ -5505,8 +5509,15 @@ fieldset:disabled .booking-cart-item__button {
     }
 
     .booking-master {
+        position: unset;
+        top: unset;
+        right: unset;
         margin-top: 24px;
         margin-left: unset;
+    }
+
+    .booking-services-subcategory__header {
+        padding-right: unset;
     }
 }
 

@@ -44,9 +44,7 @@ $services = pdp_get_pricelist( $main_salon );
                                         <div class="service-card__name"><?=$category['name'][$lang]; ?></div>
 
                                         <div class="service-card__icon">
-                                            <svg width="18" height="18" fill="none">
-                                                <path d="M10 0H8v8H0v2h8v8h2v-8h8V8h-8V0Z" />
-                                            </svg>
+                                            <svg width="18" height="18" fill="none"><path d="M10 0H8v8H0v2h8v8h2v-8h8V8h-8V0Z" /></svg>
                                         </div>
                                     </div>
                                 </a>
