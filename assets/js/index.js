@@ -153,6 +153,10 @@ jQuery(document).ready(async function($){
 
                 if(modal !== 'modal-booking-cart' && $('#' + modal + ' input[name="promotion"]').length && $(this).data('promotion')){
                     $('#' + modal + ' input[name="promotion"]').val($(this).data('promotion'))
+
+                    $('#' + modal + ' input[name="service"]').on('change', function(){
+                        $('#' + modal + ' input[name="promotion"]').val('')
+                    })
                 }
 
                 MicroModal.show(modal, options)
