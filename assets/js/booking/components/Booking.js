@@ -89,12 +89,14 @@ class Booking {
                 for(const [key, value] of Object.entries(salon)){
                     return value === this._cart.salon
                 }
-            })[0][booking_i18n.lang]
+            })
 
-            this.$salonSelect.value = currentSalon
-            this.$salonSelect.dispatchEvent(new Event('change'))
-            this.$cartSalonSelect.value = currentSalon
-            this.$cartSalonSelect.dispatchEvent(new Event('change'))
+            if(currentSalon){
+                this.$salonSelect.value = currentSalon[0][booking_i18n.lang]
+                this.$salonSelect.dispatchEvent(new Event('change'))
+                this.$cartSalonSelect.value = currentSalon[0][booking_i18n.lang]
+                this.$cartSalonSelect.dispatchEvent(new Event('change'))
+            }
         }
         else{
             this._cart.salon = this.$salonSelect.value
