@@ -152,10 +152,10 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'advantages_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'advantages_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'complex', 'advantages_list', __( 'Список преимуществ', 'pdp' ) )
-		     ->set_collapsed( true )
-		     ->add_fields( array(
-			     Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
-		     ) )
+			->set_collapsed( true )
+			->add_fields( array(
+				Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
+			) )
 	) )
 	->add_tab( __( 'Услуги', 'pdp' ), array(
 		Field::make( 'text', 'services_overtitle', __( 'Надзаголовок', 'pdp' ) ),
@@ -166,6 +166,15 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'regulations_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'text', 'regulations_subtitle', __( 'Подзаголовок', 'pdp' ) )
 	) )
+	->add_tab( __( 'Баннер', 'pdp' ), array(
+		Field::make( 'association', 'banner', __( 'Баннер', 'pdp' ) )
+			->set_types( array(
+				array(
+					'type'      => 'post',
+					'post_type' => 'banner'
+				)
+			) )
+	) )
 	->add_tab( __( 'Отзывы', 'pdp' ), array(
 		Field::make( 'text', 'testimonials_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'testimonials_title', __( 'Заголовок секции', 'pdp' ) )
@@ -174,17 +183,17 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'cosmetics_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'cosmetics_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'media_gallery', 'cosmetics_gallery', __( 'Логотипы', 'pdp' ) )
-		     ->set_type( 'image' )
+			->set_type( 'image' )
 	) )
 	->add_tab( __( 'Школа', 'pdp' ), array(
 		Field::make( 'text', 'school_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'school_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'textarea', 'school_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'complex', 'school_directions', __( 'Направления', 'pdp' ) )
-		     ->set_collapsed( true )
-		     ->add_fields( array(
-			     Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
-		     ) ),
+			->set_collapsed( true )
+			->add_fields( array(
+				Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
+			) ),
 		Field::make( 'text', 'school_button', __( 'Текст кнопки', 'pdp' ) ),
 		Field::make( 'text', 'school_link', __( 'Ссылка', 'pdp' ) ),
 		Field::make( 'image', 'school_image1x', __( 'Изображение (1x)', 'pdp' ) ),
@@ -195,11 +204,11 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'franchise_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'textarea', 'franchise_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'complex', 'franchise_features', __( 'Фишки', 'pdp' ) )
-		     ->set_collapsed( true )
-		     ->add_fields( array(
-			     Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
-			     Field::make( 'text', 'description', __( 'Описание', 'pdp' ) ),
-		     ) ),
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
+			    Field::make( 'text', 'description', __( 'Описание', 'pdp' ) ),
+		    ) ),
 		Field::make( 'text', 'franchise_button', __( 'Текст кнопки', 'pdp' ) ),
 		Field::make( 'text', 'franchise_link', __( 'Ссылка', 'pdp' ) ),
 		Field::make( 'image', 'franchise_image1x', __( 'Изображение (1x)', 'pdp' ) ),
