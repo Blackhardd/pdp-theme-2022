@@ -14,13 +14,13 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'complex', 'slides', __( 'Слайды', 'pdp' ) )
 			->set_collapsed( true )
 			->add_fields( array(
-				Field::make( 'select', 'type', __( 'Тип', 'pdp' ) )
-					->add_options( array(
-						'dark'  => __( 'Темный', 'pdp' ),
-						'light' => __( 'Светлый', 'pdp' )
-					) )
-					->set_default_value( 'dark' ),
-				Field::make( 'text', 'width', __( 'Ширина контента', 'pdp' ) ),
+		     	Field::make( 'select', 'type', __( 'Тип', 'pdp' ) )
+		             ->add_options( array(
+		             	'dark'  => __( 'Темный', 'pdp' ),
+		                'light' => __( 'Светлый', 'pdp' )
+		             ) )
+		             ->set_default_value( 'dark' ),
+			    Field::make( 'text', 'width', __( 'Ширина контента', 'pdp' ) ),
 				Field::make( 'text', 'overtitle', __( 'Надзаголовок', 'pdp' ) ),
 				Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
 				Field::make( 'text', 'description', __( 'Описание', 'pdp' ) ),
@@ -28,27 +28,43 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 				Field::make( 'text', 'button', __( 'Текст кнопки', 'pdp' ) ),
 				Field::make( 'text', 'link', __( 'Ссылка', 'pdp' ) ),
 				Field::make( 'select', 'button_style', __( 'Стиль кнопки', 'pdp' ) )
-					->add_options( array(
-						'outline'   => __( 'Обводка', 'pdp' ),
-						'default'   => __( 'Стандартный', 'pdp' )
-					) )
-					->set_default_value( 'outline' ),
+				    ->add_options( array(
+				     	'outline'   => __( 'Обводка', 'pdp' ),
+				        'default'   => __( 'Стандартный', 'pdp' )
+				    ) )
+				    ->set_default_value( 'outline' ),
 				Field::make( 'image', 'background1x', __( 'Фоновая картинка (1х)', 'pdp' ) ),
 				Field::make( 'image', 'background2x', __( 'Фоновая картинка (2х)', 'pdp' ) )
 			) )
 	) )
 	->add_tab( __( 'Слайдер услуг', 'pdp' ), array(
+		Field::make( 'checkbox', 'service_categories_display', __( 'Показывать секцию', 'pdp' ) )
+			->set_option_value( 'yes' )
+			->set_default_value( 'yes' ),
 		Field::make( 'text', 'service_categories_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'service_categories_title', __( 'Заголовок', 'pdp' ) ),
 	) )
 	->add_tab( __( 'Наш Instagram', 'pdp' ), array(
+		Field::make( 'checkbox', 'instagram_display', __( 'Показывать секцию', 'pdp' ) )
+			->set_option_value( 'yes' )
+			->set_default_value( 'yes' ),
 		Field::make( 'text', 'instagram_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'instagram_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'text', 'instagram_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'text', 'instagram_button', __( 'Текст кнопки', 'pdp' ) ),
 		Field::make( 'text', 'instagram_link', __( 'Ссылка', 'pdp' ) )
 	) )
+	->add_tab( __( 'Баннер', 'pdp' ), array(
+		Field::make( 'checkbox', 'banner_display', __( 'Показывать секцию', 'pdp' ) )
+	        ->set_option_value( 'yes' )
+	        ->set_default_value( 'yes' ),
+		Field::make( 'select', 'banner', __( 'Баннер', 'pdp' ) )
+		     ->set_options( pdp_get_banners() )
+	) )
 	->add_tab( __( 'О сети', 'pdp' ), array(
+		Field::make( 'checkbox', 'network_display', __( 'Показывать секцию', 'pdp' ) )
+			->set_option_value( 'yes' )
+			->set_default_value( 'yes' ),
 		Field::make( 'text', 'network_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'network_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'network_first_content', sprintf( __( 'Контент %s', 'pdp' ), '1' ) ),
@@ -61,13 +77,16 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'image', 'network_first_image1x', sprintf( __( 'Изображение %s (1x)', 'pdp' ), '1' ) )
 			->set_width( 25 ),
 		Field::make( 'image', 'network_first_image2x', sprintf( __( 'Изображение %s (2x)', 'pdp' ), '1' ) )
-		     ->set_width( 25 ),
+		    ->set_width( 25 ),
 		Field::make( 'image', 'network_second_image1x', sprintf( __( 'Изображение %s', 'pdp' ), '2' ) )
-		     ->set_width( 25 ),
+		    ->set_width( 25 ),
 		Field::make( 'image', 'network_second_image2x', sprintf( __( 'Изображение %s', 'pdp' ), '2' ) )
-		     ->set_width( 25 )
+		    ->set_width( 25 )
 	) )
 	->add_tab( __( 'Об услугах', 'pdp' ), array(
+		Field::make( 'checkbox', 'about_services_display', __( 'Показывать секцию', 'pdp' ) )
+	        ->set_option_value( 'yes' )
+	        ->set_default_value( 'yes' ),
 		Field::make( 'text', 'about_services_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'about_services_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'about_services_content', __( 'Контент', 'pdp' ) ),
@@ -75,49 +94,67 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'image', 'about_services_image2x', __( 'Изображение (2x)', 'pdp' ) )
 	) )
 	->add_tab( __( 'Преимущества', 'pdp' ), array(
+		Field::make( 'checkbox', 'advantages_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'advantages_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'advantages_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'complex', 'advantages_list', __( 'Список преимуществ', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
-			) )
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
+		    ) )
 	) )
 	->add_tab( __( 'Отзывы', 'pdp' ), array(
+		Field::make( 'checkbox', 'testimonials_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'testimonials_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'testimonials_title', __( 'Заголовок секции', 'pdp' ) )
 	) )
 	->add_tab( __( 'Меню услуг', 'pdp' ), array(
+		Field::make( 'checkbox', 'services_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'services_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'services_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'complex', 'services_categories', __( 'Категории услуг', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
-				Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
-			) ),
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
+			    Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
+		    ) ),
 		Field::make( 'textarea', 'services_call', __( 'Текст предложения', 'pdp' ) ),
 		Field::make( 'text', 'services_button', __( 'Текст кнопки', 'pdp' ) ),
 		Field::make( 'text', 'services_link', __( 'Ссылка', 'pdp' ) ),
 	) )
 	->add_tab( __( 'Перфекционизм', 'pdp' ), array(
+		Field::make( 'checkbox', 'perfectionism_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'perfectionism_heading', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'perfectionism_content', __( 'Контент', 'pdp' ) ),
 		Field::make( 'image', 'perfectionism_image1x', __( 'Изображение (1x)', 'pdp' ) ),
 		Field::make( 'image', 'perfectionism_image2x', __( 'Изображение (2x)', 'pdp' ) )
 	) )
 	->add_tab( __( 'Форма', 'pdp' ), array(
+		Field::make( 'checkbox', 'form_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'form_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'textarea', 'form_subtitle', __( 'Подзаголовок', 'pdp' ) )
 	) )
 	->add_tab( __( 'Вопросы и ответы' ), array(
+		Field::make( 'checkbox', 'faq_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'faq_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'complex', 'faq_items', __( 'Список вопросов', 'pdp' ) )
-		     ->set_collapsed( true )
-		     ->add_fields( array(
-			     Field::make( 'text', 'title', __( 'Вопрос', 'pdp' ) ),
-			     Field::make( 'rich_text', 'content', __( 'Ответ', 'pdp' ) ),
-		     ) )
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'title', __( 'Вопрос', 'pdp' ) ),
+			    Field::make( 'rich_text', 'content', __( 'Ответ', 'pdp' ) ),
+		    ) )
 	) );
 
 
@@ -135,6 +172,9 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'image', 'hero_background2x', __( 'Фоновая картинка (2х)', 'pdp' ) )
 	) )
 	->add_tab( __( 'Об услугах', 'pdp' ), array(
+		Field::make( 'checkbox', 'about_services_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'about_services_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'about_services_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'about_services_content', __( 'Контент', 'pdp' ) ),
@@ -142,6 +182,9 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'image', 'about_services_image2x', __( 'Изображение (2x)', 'pdp' ) )
 	) )
 	->add_tab( __( 'Основатели', 'pdp' ), array(
+		Field::make( 'checkbox', 'founders_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'founders_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'founders_content', __( 'Контент', 'pdp' ) ),
 		Field::make( 'text', 'founders_sign', __( 'Подпись', 'pdp' ) ),
@@ -149,57 +192,76 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'image', 'founders_image2x', __( 'Изображение (2x)', 'pdp' ) )
 	) )
 	->add_tab( __( 'Преимущества', 'pdp' ), array(
+		Field::make( 'checkbox', 'advantages_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'advantages_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'advantages_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'complex', 'advantages_list', __( 'Список преимуществ', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
-			) )
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'textarea', 'content', __( 'Контент', 'pdp' ) ),
+		    ) )
 	) )
 	->add_tab( __( 'Услуги', 'pdp' ), array(
+		Field::make( 'checkbox', 'services_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'services_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'services_title', __( 'Заголовок секции', 'pdp' ) )
 	) )
 	->add_tab( __( 'Регламенты', 'pdp' ), array(
+		Field::make( 'checkbox', 'regulations_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'regulations_badge_title', __( 'Текст бейджа', 'pdp' ) ),
 		Field::make( 'text', 'regulations_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'text', 'regulations_subtitle', __( 'Подзаголовок', 'pdp' ) )
 	) )
 	->add_tab( __( 'Баннер', 'pdp' ), array(
-		Field::make( 'association', 'banner', __( 'Баннер', 'pdp' ) )
-			->set_types( array(
-				array(
-					'type'      => 'post',
-					'post_type' => 'banner'
-				)
-			) )
+		Field::make( 'checkbox', 'banner_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
+		Field::make( 'select', 'banner', __( 'Баннер', 'pdp' ) )
+		    ->set_options( pdp_get_banners() )
 	) )
 	->add_tab( __( 'Отзывы', 'pdp' ), array(
+		Field::make( 'checkbox', 'testimonials_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'testimonials_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'testimonials_title', __( 'Заголовок секции', 'pdp' ) )
 	) )
 	->add_tab( __( 'Косметика', 'pdp' ), array(
+		Field::make( 'checkbox', 'cosmetics_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'cosmetics_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'cosmetics_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'media_gallery', 'cosmetics_gallery', __( 'Логотипы', 'pdp' ) )
-			->set_type( 'image' )
+		    ->set_type( 'image' )
 	) )
 	->add_tab( __( 'Школа', 'pdp' ), array(
+		Field::make( 'checkbox', 'school_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'school_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'school_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'textarea', 'school_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'complex', 'school_directions', __( 'Направления', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
-			) ),
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
+		    ) ),
 		Field::make( 'text', 'school_button', __( 'Текст кнопки', 'pdp' ) ),
 		Field::make( 'text', 'school_link', __( 'Ссылка', 'pdp' ) ),
 		Field::make( 'image', 'school_image1x', __( 'Изображение (1x)', 'pdp' ) ),
 		Field::make( 'image', 'school_image2x', __( 'Изображение (2x)', 'pdp' ) ),
 	) )
 	->add_tab( __( 'Франшиза', 'pdp' ), array(
+		Field::make( 'checkbox', 'franchise_display', __( 'Показывать секцию', 'pdp' ) )
+		    ->set_option_value( 'yes' )
+		    ->set_default_value( 'yes' ),
 		Field::make( 'text', 'franchise_overtitle', __( 'Надзаголовок', 'pdp' ) ),
 		Field::make( 'text', 'franchise_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'textarea', 'franchise_description', __( 'Описание', 'pdp' ) ),
@@ -231,44 +293,44 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 	) )
 	->add_tab( __( 'Подарки', 'pdp' ), array(
 		Field::make( 'complex', 'gifts', __( 'Варианты', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
-				Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
-				Field::make( 'text', 'slug', __( 'Ярлык', 'pdp' ) ),
-				Field::make( 'image', 'cover1x', __( 'Обложка (1х)', 'pdp' ) ),
-				Field::make( 'image', 'cover2x', __( 'Обложка (2х)', 'pdp' ) ),
-				Field::make( 'image', 'hover_cover1x', __( 'Обложка при наведении (1х)', 'pdp' ) ),
-				Field::make( 'image', 'hover_cover2x', __( 'Обложка при наведении (2х)', 'pdp' ) ),
-				Field::make( 'checkbox', 'bestseller', __( 'Бестселлер', 'pdp' ) )
-				     ->set_option_value( 'yes' ),
-				Field::make( 'select', 'type', __( 'Тип', 'pdp' ) )
-					->add_options( array(
-						'card'  => __( 'Карта', 'pdp' ),
-						'box'  => __( 'Бокс', 'pdp' )
-					) ),
-				Field::make( 'complex', 'gallery', __( 'Галерея', 'pdp' ) )
-					->set_collapsed( true )
-					->add_fields( array(
-						Field::make( 'image', 'item1x', __( 'Изображение (1х)', 'pdp' ) ),
-						Field::make( 'image', 'item2x', __( 'Изображение (2х)', 'pdp' ) )
-					) ),
-				Field::make( 'color', 'color', __( 'Цвет', 'pdp' ) ),
-				Field::make( 'textarea', 'amount', __( 'Номиналы (через запятую)', 'pdp' ) )
-					->set_conditional_logic( array(
-						array(
-							'field' => 'type',
-							'value' => 'card'
-						)
-					) ),
-				Field::make( 'textarea', 'desc', __( 'Описание', 'pdp' ) )
-				     ->set_conditional_logic( array(
-					     array(
-						     'field' => 'type',
-						     'value' => 'box'
-					     )
-				     ) )
-			) )
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
+			    Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
+			    Field::make( 'text', 'slug', __( 'Ярлык', 'pdp' ) ),
+			    Field::make( 'image', 'cover1x', __( 'Обложка (1х)', 'pdp' ) ),
+			    Field::make( 'image', 'cover2x', __( 'Обложка (2х)', 'pdp' ) ),
+			    Field::make( 'image', 'hover_cover1x', __( 'Обложка при наведении (1х)', 'pdp' ) ),
+			    Field::make( 'image', 'hover_cover2x', __( 'Обложка при наведении (2х)', 'pdp' ) ),
+			    Field::make( 'checkbox', 'bestseller', __( 'Бестселлер', 'pdp' ) )
+			        ->set_option_value( 'yes' ),
+			    Field::make( 'select', 'type', __( 'Тип', 'pdp' ) )
+			        ->add_options( array(
+			        	'card'  => __( 'Карта', 'pdp' ),
+				        'box'  => __( 'Бокс', 'pdp' )
+			        ) ),
+			    Field::make( 'complex', 'gallery', __( 'Галерея', 'pdp' ) )
+			        ->set_collapsed( true )
+			        ->add_fields( array(
+			        	Field::make( 'image', 'item1x', __( 'Изображение (1х)', 'pdp' ) ),
+				        Field::make( 'image', 'item2x', __( 'Изображение (2х)', 'pdp' ) )
+			        ) ),
+			    Field::make( 'color', 'color', __( 'Цвет', 'pdp' ) ),
+			    Field::make( 'textarea', 'amount', __( 'Номиналы (через запятую)', 'pdp' ) )
+			        ->set_conditional_logic( array(
+			        	array(
+			        		'field' => 'type',
+					        'value' => 'card'
+				        )
+			        ) ),
+			    Field::make( 'textarea', 'desc', __( 'Описание', 'pdp' ) )
+			        ->set_conditional_logic( array(
+			        	array(
+			        		'field' => 'type',
+					        'value' => 'box'
+				        )
+			        ) )
+		    ) )
 	) )
 	->add_tab( __( 'Первый баннер', 'pdp' ), array(
 		Field::make( 'text', 'first_banner_title', __( 'Заголовок', 'pdp' ) ),
@@ -283,11 +345,11 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'promo_subtitle', __( 'Подзаголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'promo_content', __( 'Контент', 'pdp' ) ),
 		Field::make( 'complex', 'promo_features', __( 'Фишки', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'textarea', 'icon', __( 'SVG код', 'pdp' ) ),
-				Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
-			) ),
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'textarea', 'icon', __( 'SVG код', 'pdp' ) ),
+			    Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
+		    ) ),
 		Field::make( 'image', 'promo_image1x', __( 'Изображение (1x)', 'pdp' ) ),
 		Field::make( 'image', 'promo_image2x', __( 'Изображение (2x)', 'pdp' ) )
 	) )
@@ -309,26 +371,26 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
  *  Service
  */
 
-Container::make('post_meta', __('Настройки страницы', 'pdp'))
-	->where('post_template', '=', 'service-category.php')
-	->add_tab(__('Шапка страницы', 'pdp'), array(
+Container::make( 'post_meta', __( 'Настройки страницы', 'pdp' ) )
+	->where( 'post_template', '=', 'service-category.php' )
+	->add_tab( __( 'Шапка страницы', 'pdp' ), array(
 		Field::make('rich_text', 'hero_content', __('Текст', 'pdp'))
-		     ->set_width(75),
+		    ->set_width(75),
 		Field::make('image', 'hero_img', __('Изображение', 'pdp'))
-		     ->set_width(25)
+		    ->set_width(25)
 	) )
 	->add_tab( __( 'Секции', 'pdp' ), array(
 		Field::make( 'complex', 'sections', __( 'Список секций', 'pdp' ) )
-			->set_collapsed( true )
-			->add_fields( array(
-				Field::make( 'text', 'title', __('Заголовок', 'pdp' ) ),
-				Field::make( 'image', 'image', __('Изображение', 'pdp' ) ),
-				Field::make( 'rich_text', 'content', __('Контент', 'pdp' ) ),
-				Field::make( 'text', 'details', __( 'Страница подробностей', 'pdp' ) ),
-				Field::make( 'text', 'form_title', __( 'Заголовок для формы', 'pdp' ) ),
-				Field::make( 'text', 'form_service', __( 'Название услуги для формы', 'pdp' ) ),
-				Field::make( 'rich_text', 'after_content', __( 'Контент после секции', 'pdp' ) )
-			) )
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'title', __('Заголовок', 'pdp' ) ),
+			    Field::make( 'image', 'image', __('Изображение', 'pdp' ) ),
+			    Field::make( 'rich_text', 'content', __('Контент', 'pdp' ) ),
+			    Field::make( 'text', 'details', __( 'Страница подробностей', 'pdp' ) ),
+			    Field::make( 'text', 'form_title', __( 'Заголовок для формы', 'pdp' ) ),
+			    Field::make( 'text', 'form_service', __( 'Название услуги для формы', 'pdp' ) ),
+			    Field::make( 'rich_text', 'after_content', __( 'Контент после секции', 'pdp' ) )
+		    ) )
 	) );
 
 
@@ -350,10 +412,10 @@ Container::make( 'post_meta', __( 'Настройки', 'pdp' ) )
 		Field::make( 'text', 'school_title', __( 'Заголовок секции', 'pdp' ) ),
 		Field::make( 'textarea', 'school_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'complex', 'school_directions', __( 'Направления', 'pdp' ) )
-		     ->set_collapsed( true )
-		     ->add_fields( array(
-			     Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
-		     ) ),
+		    ->set_collapsed( true )
+		    ->add_fields( array(
+		    	Field::make( 'text', 'name', __( 'Название', 'pdp' ) ),
+		    ) ),
 		Field::make( 'text', 'school_button', __( 'Текст кнопки', 'pdp' ) ),
 		Field::make( 'text', 'school_link', __( 'Ссылка', 'pdp' ) ),
 		Field::make( 'image', 'school_image1x', __( 'Изображение (1x)', 'pdp' ) ),
