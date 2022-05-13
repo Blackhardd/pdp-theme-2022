@@ -1,6 +1,6 @@
 <?php
 
-if( function_exists( 'pll_the_languages' ) ) :
+if( function_exists( 'pll_the_languages' ) && count( pll_languages_list() ) > 1 ) :
 	$langs = pll_the_languages( array( 'raw' => true ) );
 	$current_lang = pll_current_language(); ?>
 
