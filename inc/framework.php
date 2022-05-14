@@ -609,6 +609,25 @@ function pdp_get_vacancies(){
 
 
 /**
+ * 	Getting all banners
+ */
+
+function pdp_get_banners(){
+	$banners = array();
+	$banners_raw = get_posts( array(
+		'numberposts'   => -1,
+		'post_type'     => 'vacancy'
+	) );
+
+	foreach( $banners_raw as $banner ){
+	    $banners[$banner->ID] = $banner->post_title;
+    }
+
+	return $banners;
+}
+
+
+/**
  *  Getting banner
  */
 
