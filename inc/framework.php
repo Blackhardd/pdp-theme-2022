@@ -303,9 +303,9 @@ function pdp_get_post_meta_retina_image_url( $post_id, $name ){
  *  Getting site main city
  */
 
-function pdp_get_main_city( $lang = 'ru' ){
+function pdp_get_main_city( $lang = false ){
     $main_city_id = carbon_get_theme_option( 'main_city' )[0]['id'];
-    return $main_city_id ? get_term( pll_get_term( $main_city_id, $lang ) )->name : false;
+    return $main_city_id ? get_term( pll_get_term( $main_city_id, $lang ? $lang : '' ) ? pll_get_term( $main_city_id, $lang ? $lang : '' ) : $main_city_id )->name : false;
 }
 
 

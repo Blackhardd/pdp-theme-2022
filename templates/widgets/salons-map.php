@@ -19,7 +19,7 @@ $city_counter = 0;
             <div class="map__city">
                 <select name="city" data-icon="location">
                     <?php foreach( $cities as $city ) : ?>
-                        <option value="<?=$city->name; ?>" <?=!$main_city && $city_counter === 0 ? 'selected' : $main_city === $city->name ? 'selected' : '';?>><?=$city->name; ?></option>
+                        <option value="<?=$city->name; ?>" <?=!$main_city && $city_counter === 0 ? 'selected' : ( $main_city === $city->name ? 'selected' : '' ); ?>><?=$city->name; ?></option>
                     <?php
                         $city_counter++;
                     endforeach; ?>
