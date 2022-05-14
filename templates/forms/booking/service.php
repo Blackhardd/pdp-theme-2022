@@ -1,3 +1,10 @@
+<?php
+
+$is_show_salon_select = boolval( carbon_get_theme_option( 'forms_show_salon_select' ) );
+$default_salon = carbon_get_theme_option( 'forms_default_salon' );
+
+?>
+
 <div class="form-wrap">
 	<form class="form">
         <div class="form__fields">
@@ -13,14 +20,12 @@
                 </div>
             </div>
 
-	        <?php if( carbon_get_theme_option( 'forms_show_salon_select' ) ) : ?>
+	        <?php if( $is_show_salon_select ) : ?>
                 <div class="form-row">
                     <div class="form-col">
 				        <?php pdp_form_field( 'salon' ); ?>
                     </div>
                 </div>
-	        <?php else : ?>
-                <input type="hidden" name="salon" value="<?=carbon_get_theme_option( 'forms_default_salon' ); ?>">
 	        <?php endif; ?>
         </div>
 
@@ -29,6 +34,10 @@
 		<div class="form__submit">
 			<input type="submit" class="btn-default" value="<?=__( 'Записаться', 'pdp' ); ?>">
 		</div>
+
+		<?php if( !$is_show_salon_select ) : ?>
+			<input type="hidden" name="salon" value="<?=$default_salon; ?>">
+		<?php endif; ?>
 
 		<input type="hidden" name="action" value="service_booking">
 		<input type="hidden" name="service" value="<?=$args['service']; ?>">

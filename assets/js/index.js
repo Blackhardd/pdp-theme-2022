@@ -134,7 +134,7 @@ jQuery(document).ready(async function($){
                     $salonInput.val(href.substring(href.indexOf('salon=') + 'salon='.length))
                     $salonInput[0].dispatchEvent(new Event('change'))
                 }
-                else if(modal !== 'modal-booking-cart' && $('#' + modal + ' input[name="salon"]').length){
+                else if(modal !== 'modal-booking-cart' && $('#' + modal + ' input[name="salon"]').length && $('#' + modal + ' input[name="salon"]').attr('type') !== 'hidden'){
                     const $salonInput = $('#' + modal + ' input[name="salon"]')
                     $salonInput.val('')
                     $salonInput[0].dispatchEvent(new Event('change'))

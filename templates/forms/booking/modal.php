@@ -2,7 +2,7 @@
 
 wp_enqueue_script( 'forms' );
 
-$is_show_salon_select = carbon_get_theme_option( 'forms_show_salon_select' );
+$is_show_salon_select = boolval( carbon_get_theme_option( 'forms_show_salon_select' ) );
 $default_salon = carbon_get_theme_option( 'forms_default_salon' );
 
 ?>
@@ -22,22 +22,16 @@ $default_salon = carbon_get_theme_option( 'forms_default_salon' );
 				</div>
 			</div>
 
+			<div class="form-row form-row--one">
+				<div class="form-col">
+					<?php pdp_form_field( 'service' ); ?>
+				</div>
+			</div>
+
 			<?php if( $is_show_salon_select ) : ?>
 				<div class="form-row form-row--one">
 					<div class="form-col">
-						<?php pdp_form_field( 'service' ); ?>
-					</div>
-				</div>
-
-				<div class="form-row form-row--one">
-					<div class="form-col">
 						<?php pdp_form_field( 'salon' ); ?>
-					</div>
-				</div>
-			<?php else : ?>
-				<div class="form-row form-row--one">
-					<div class="form-col">
-						<?php pdp_form_field( 'service' ); ?>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -50,7 +44,10 @@ $default_salon = carbon_get_theme_option( 'forms_default_salon' );
 		<button type="submit" class="btn"><span><?=__( 'Записаться', 'pdp' ); ?></span></button>
 	</div>
 
-	<?=!$is_show_salon_select ? "<input type='hidden' name='salon' value='{$default_salon}'>" : ''; ?>
+	<?php if( !$is_show_salon_select ) : ?>
+		<input type="hidden" name="salon" value="<?=$default_salon; ?>">
+	<?php endif; ?>
+
 	<input type="hidden" name="promotion" value="">
 	<input type="hidden" name="action" value="simple_booking">
 	<input type="hidden" name="page_title" value="<?=get_the_title(); ?>">
