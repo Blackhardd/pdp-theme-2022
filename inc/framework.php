@@ -5,11 +5,25 @@
  * @package Pied-de-Poul
  */
 
+
 /**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- * @return array
+ * 	Redirecting single salon page to 404 if outer link is set
+ */
+
+add_action( 'wp', 'pdp_404_salon_redirect' );
+
+function pdp_404_salon_redirect(){
+	global $wp_query;
+	global $post;
+
+	if( is_singular( 'salon' ) && $post->__get( '_outer_link' ) ){
+		$wp_query->set_404();
+	}
+}
+
+
+/**
+ * Adds custom classes to the array of body classes
  */
 
 add_filter( 'body_class', 'pdp_body_classes' );
@@ -51,7 +65,7 @@ function pdp_add_critical_css(){
 
 
 /**
- * Add analytics
+ * Adding analytics
  */
 
 add_action( 'wp_head', 'pdp_add_analytics' );
@@ -68,7 +82,7 @@ function pdp_add_analytics_footer(){
 
 
 /**
- * Add gtag.js actions
+ * Adding gtag.js actions
  */
 
 add_action( 'wp_footer', 'pdp_add_gtag_actions', 100 );
