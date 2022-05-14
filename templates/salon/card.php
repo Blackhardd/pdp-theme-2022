@@ -8,7 +8,7 @@ $permalink = get_permalink( $salon['id'] );
 <div class="salon-card <?=$args['slider'] ? 'swiper-slide' : ''; ?>">
     <?php if( $salon['cover']['1x'] && $salon['cover']['2x'] ) : ?>
         <div class="salon-card__image">
-            <a href="<?=$permalink; ?>">
+            <a href="<?=$salon['outer_link'] ? $salon['outer_link'] : $permalink; ?>" <?=$salon['outer_link'] ? 'target="_blank"' : ''; ?>>
                 <img src="<?=$salon['cover']['1x']; ?>" data-src="<?=$salon['cover']['1x']; ?>" data-srcset="<?=$salon['cover']['1x']; ?> 1x, <?=$salon['cover']['2x']; ?> 2x" class="lazyload">
             </a>
         </div>
@@ -25,7 +25,7 @@ $permalink = get_permalink( $salon['id'] );
             <?php endif; ?>
 		</div>
 
-		<a href="<?=$permalink; ?>">
+		<a href="<?=$salon['outer_link'] ? $salon['outer_link'] : $permalink; ?>" <?=$salon['outer_link'] ? 'target="_blank"' : ''; ?>>
 			<div class="salon-card__name"><?=$salon['title']; ?></div>
 			<div class="salon-card__address"><?=$salon['name']; ?></div>
 		</a>
