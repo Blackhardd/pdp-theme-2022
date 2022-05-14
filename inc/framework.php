@@ -455,9 +455,11 @@ function pdp_get_salons_grouped_by_city(){
         $grouped[$salon['city']][] = $salon;
     }
 
-    $main_city_salons = array( $main_city => $grouped[$main_city] );
-    unset( $grouped[$main_city] );
-    $grouped = $main_city_salons + $grouped;
+	if( $main_city ){
+		$main_city_salons = array( $main_city => $grouped[$main_city] );
+		unset( $grouped[$main_city] );
+		$grouped = $main_city_salons + $grouped;
+	}
 
     return $grouped;
 }
