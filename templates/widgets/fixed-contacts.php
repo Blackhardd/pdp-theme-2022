@@ -25,6 +25,6 @@ if( $telegram_bot || $viber_bot || $instagram ) : ?>
             <div><svg width="16" height="16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 6.94 1.46.4.39 1.46 6.94 8 .39 14.54l1.07 1.06L8 9.06l6.54 6.54 1.06-1.06L9.06 8l6.54-6.54L14.54.4 8 6.94Z" /></svg></div>
         </div>
 
-        <div class="fixed-contacts__title"><?=sprintf( __( 'Онлайн%sзапись' ), '<br />' ); ?></div>
+        <div class="fixed-contacts__title"><?=sprintf( __( 'Онлайн%sзапись', 'pdp' ), '<br />' ); ?></div>
     </div>
 <?php endif;
