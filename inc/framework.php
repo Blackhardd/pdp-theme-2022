@@ -616,7 +616,7 @@ function pdp_get_banners(){
 	$banners = array();
 	$banners_raw = get_posts( array(
 		'numberposts'   => -1,
-		'post_type'     => 'vacancy'
+		'post_type'     => 'banner'
 	) );
 
 	foreach( $banners_raw as $banner ){
