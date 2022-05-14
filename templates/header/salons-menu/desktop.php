@@ -76,7 +76,9 @@ $cities = pdp_get_salons_grouped_by_city();
 					</div>
 				</div>
 
-				<?php pdp_get_banner( 11465, ['banner--header', 'desktop-salons-panel__banner'] ); ?>
+				<?php if( $banner_id = carbon_get_theme_option( 'header_phones_banner' ) ) : ?>
+					<?php pdp_get_banner( $banner_id, ['banner--header', 'desktop-salons-panel__banner'] ); ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

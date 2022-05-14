@@ -46,6 +46,12 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			) )
 			->set_max( 1 )
 			->set_width( 50 ),
+		Field::make( 'select', 'header_phones_banner', __( 'Баннер панели номеров', 'pdp' ) )
+			->set_options( pdp_get_banners() )
+			->set_width( 50 ),
+		Field::make( 'select', 'header_cart_banner', __( 'Баннер панели корзины', 'pdp' ) )
+			->set_options( pdp_get_banners() )
+			->set_width( 50 ),
 		Field::make( 'html', 'forms_heading' )
 			->set_html( sprintf( '<h2>%s</h2>', 'Формы' ) ),
 		Field::make( 'select', 'forms_show_salon_select', __( 'Выбор салона в формах', 'pdp' ) )

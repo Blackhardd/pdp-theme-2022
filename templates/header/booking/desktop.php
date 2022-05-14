@@ -72,7 +72,9 @@
 					</div>
 				</div>
 
-				<?php pdp_get_banner( 11465, ['banner--header', 'cart-panel__banner'] ); ?>
+				<?php if( $banner_id = carbon_get_theme_option( 'header_cart_banner' ) ) : ?>
+					<?php pdp_get_banner( $banner_id, ['banner--header', 'cart-panel__banner'] ); ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
