@@ -632,7 +632,7 @@ function pdp_get_banners(){
  */
 
 function pdp_get_banner( $id, $classes = array() ){
-    $id = pll_get_post( $id );
+    $id = pll_get_post( $id ) ? pll_get_post( $id ) : $id;
     $banner = get_post( $id );
 
     if( !$banner ){
