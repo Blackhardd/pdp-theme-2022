@@ -343,6 +343,7 @@ function pdp_get_salon_data( $id ){
 	$salon = pdp_get_salon( $id );
 
 	$title = carbon_get_post_meta( $salon->ID, 'title' );
+	$outer_link = carbon_get_post_meta( $salon->ID, 'outer_link' );
 	$link = carbon_get_post_meta( $salon->ID, 'map_link' );
 	$lat = carbon_get_post_meta( $salon->ID, 'latitude' );
 	$lng = carbon_get_post_meta( $salon->ID, 'longitude' );
@@ -352,6 +353,7 @@ function pdp_get_salon_data( $id ){
 		'id'                => $salon->ID,
 		'name'              => $salon->post_title,
 		'cover'             => pdp_get_post_meta_retina_image_url( $salon->ID, 'cover' ),
+		'outer_link'		=> $outer_link ? $outer_link : false,
 		'title'             => $title ? $title : false,
 		'phone'             => $phone ? $phone : false,
 		'city'              => wp_get_post_terms( $salon->ID, 'city' )[0]->name,
