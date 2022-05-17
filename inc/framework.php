@@ -208,6 +208,15 @@ function pdp_get_related_pages( $post = false ){
 
 
 /**
+ *	Getting default language
+ */
+
+function pdp_get_default_language(){
+	return pll_default_language() === 'uk' ? 'ua' : pll_default_language();
+}
+
+
+/**
  *  Getting current language
  */
 
