@@ -2663,6 +2663,7 @@ h3.title__heading {
 
 .salon-card__topbar > .tag,
 .salon-card__topbar > .btn {
+    flex-shrink: 0;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
 
@@ -4372,6 +4373,7 @@ fieldset:disabled .booking-cart-item__button {
     color: #FFFFFF;
     font-size: 14px;
     line-height: 13px;
+    white-space: nowrap;
     text-transform: uppercase;
     background: var(--brown-color);
     border-radius: 30px;
@@ -5073,7 +5075,8 @@ fieldset:disabled .booking-cart-item__button {
     }
 
 
-    .advantages__items {
+    .advantages__short,
+    .advantages__rest {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -5409,7 +5412,8 @@ fieldset:disabled .booking-cart-item__button {
     }
 
 
-    .advantages__items {
+    .advantages__short,
+    .advantages__rest {
         grid-template-columns: 1fr;
     }
 
