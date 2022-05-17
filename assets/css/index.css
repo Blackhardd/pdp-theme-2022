@@ -981,6 +981,9 @@ h1.slide__heading {
     line-height: 26px;
 }
 
+.page-hero > .page-hero__subtitle {
+    display: none;
+}
 
 .page-hero__scroll-below.scroll-below--mobile {
     display: none;
@@ -5744,7 +5747,7 @@ fieldset:disabled .booking-cart-item__button {
 
     .page-hero,
     #about-hero .page-hero {
-        padding: 170px 0 0 0;
+        padding: 173px 0 0 0;
         text-align: center;
     }
 
@@ -5769,6 +5772,15 @@ fieldset:disabled .booking-cart-item__button {
         margin-bottom: 35px;
         font-size: 16px;
         line-height: 26px;
+        text-align: left;
+    }
+
+    .page-hero > .page-hero__subtitle {
+        display: block;
+    }
+
+    .page-hero__content > .page-hero__subtitle {
+        display: none;
     }
 
     .page-hero__scroll-below {
@@ -5776,6 +5788,10 @@ fieldset:disabled .booking-cart-item__button {
         top: unset !important;
         right: unset !important;
         bottom: unset !important;
+    }
+
+    #about-hero .page-hero__uptitle {
+        max-width: 210px;
     }
 
     #about-hero .page-hero__content > h1 {

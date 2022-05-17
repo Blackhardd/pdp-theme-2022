@@ -22,10 +22,12 @@ $page_id = get_the_ID();
                 <img src="<?=$hero_background['1x']; ?>" data-src="<?=$hero_background['1x']; ?>" data-srcset="<?=$hero_background['1x']; ?> 1x, <?=$hero_background['2x']; ?> 2x" class="page-hero__image lazyload">
 
                 <div class="page-hero__content">
-                    <div class="page-hero__uptitle"><?=carbon_get_post_meta( $page_id, 'hero_overtitle' )?></div>
-                    <h1><?=carbon_get_post_meta( $page_id, 'hero_title' )?></h1>
-                    <div class="page-hero__subtitle"><?=carbon_get_post_meta( $page_id, 'hero_description' )?></div>
+                    <div class="page-hero__uptitle"><?=carbon_get_the_post_meta( 'hero_overtitle' )?></div>
+                    <h1><?=carbon_get_the_post_meta( 'hero_title' )?></h1>
+                    <div class="page-hero__subtitle"><?=carbon_get_the_post_meta( 'hero_description' )?></div>
                 </div>
+
+                <div class="page-hero__subtitle"><?=carbon_get_the_post_meta( 'hero_description' )?></div>
 
                 <div class="page-hero__scroll-below scroll-below scroll-below--desktop">
                     <svg viewBox="0 0 158 158" width="158" height="158">
