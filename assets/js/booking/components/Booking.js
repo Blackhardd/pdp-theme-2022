@@ -193,13 +193,15 @@ class Booking {
 
         _this.$categoriesMobile.querySelectorAll('.service-card').forEach(cat => {
             cat.addEventListener('click', e => {
-                delete _this.$categoriesMobile.querySelector('[data-active]').dataset.active
-                e.target.closest('.service-card').dataset.active = ''
-
-                delete _this.$categoriesDesktop.querySelector('[data-active]').dataset.active
-                _this.$categoriesDesktop.querySelector('[data-slug="' + e.target.dataset.slug + '"]').dataset.active = ''
-
-                _this.setActiveCategory(_this.categories.filter(category => category.slug === e.target.dataset.slug).pop())
+                if(!e.target.classList.contains('service-card--disabled')){
+                    delete _this.$categoriesMobile.querySelector('[data-active]').dataset.active
+                    e.target.closest('.service-card').dataset.active = ''
+    
+                    delete _this.$categoriesDesktop.querySelector('[data-active]').dataset.active
+                    _this.$categoriesDesktop.querySelector('[data-slug="' + e.target.dataset.slug + '"]').dataset.active = ''
+    
+                    _this.setActiveCategory(_this.categories.filter(category => category.slug === e.target.dataset.slug).pop())
+                }
             })
         })
 
@@ -266,6 +268,8 @@ class Booking {
 
         const res = await fetch(`${bookingData.restUrl}/pdp/v1/services/${this._cart.salon}`)
         this.services = await res.json()
+
+        this.disableEmptyCategories()
         this.setActiveCategory(this.activeCategory ? this.activeCategory : this.categories[Object.keys(this.categories)[0]])
 
         this.hidePreloader()
@@ -297,6 +301,23 @@ class Booking {
             this.$preloader.classList.add('booking-preloader--hidden')
             document.body.style.overflow = ''
         }
+    }
+
+
+    /**
+     *  Categories Updating
+     */
+
+    disableEmptyCategories(){
+        const _this = this
+
+        _this.$categoriesDesktop.querySelectorAll('.booking-category').forEach(el => {
+            !Object.entries(_this.services).filter(([key]) => key === el.dataset.slug).length ? el.classList.add('booking-category--disabled') : el.classList.remove('booking-category--disabled')
+        })
+
+        _this.$categoriesMobile.querySelectorAll('.service-card').forEach(el => {
+            !Object.entries(_this.services).filter(([key]) => key === el.querySelector('a').dataset.slug).length ? el.classList.add('service-card--disabled') : el.classList.remove('service-card--disabled')
+        })
     }
 
 

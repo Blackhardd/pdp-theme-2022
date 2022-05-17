@@ -1312,6 +1312,14 @@ h3.title__heading {
     fill: var(--brown-color);
 }
 
+.service-card--disabled {
+    opacity: .3;
+}
+
+.service-card--disabled > a {
+    pointer-events: none;
+}
+
 
 /**
  *  Instagram
@@ -3375,6 +3383,11 @@ h3.title__heading {
 .booking-category[data-active] {
     color: #FFFFFF;
     background: var(--black-color);
+}
+
+.booking-category--disabled {
+    opacity: .3;
+    pointer-events: none;
 }
 
 
