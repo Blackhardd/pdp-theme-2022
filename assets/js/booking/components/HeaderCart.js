@@ -60,7 +60,9 @@ class HeaderCartComponent {
         if(this._cart.salon){
             const currentSalon = headerCartData.salons.filter(salon => {
                 for(const [key, value] of Object.entries(salon)){
-                    return value === this._cart.salon
+                    if(value === this._cart.salon){
+                        return true
+                    }
                 }
             })[0][headerCart_i18n.lang]
 

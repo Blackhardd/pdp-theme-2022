@@ -87,7 +87,9 @@ class Booking {
         if(this._cart.salon && !new URLSearchParams(window.location.search).get('salonId')){
             const currentSalon = bookingData.salons.filter(salon => {
                 for(const [key, value] of Object.entries(salon)){
-                    return value === this._cart.salon
+                    if(value === this._cart.salon){
+                        return true
+                    }
                 }
             }).pop()
 
