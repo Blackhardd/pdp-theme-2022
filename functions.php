@@ -140,7 +140,7 @@ function pdp_scripts(){
 	) );
 
 
-	if( !carbon_get_theme_option( 'gfonts_enabled' ) ){
+	if( carbon_get_theme_option( 'gfonts_enabled' ) !== 'yes' ){
 		wp_enqueue_style( 'fonts', PDP_THEME_URL . '/assets/css/fonts.css', array(), PDP_THEME_VERSION );
 	}
 
