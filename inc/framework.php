@@ -65,6 +65,41 @@ function pdp_add_critical_css(){
 
 
 /**
+ *  Setting font
+ */
+
+add_action( 'wp_head', 'pdp_set_font' );
+
+function pdp_set_font(){
+    $current_language = pdp_get_current_language();
+
+    $is_gfonts_enabled = carbon_get_theme_option( 'gfonts_enabled' );
+	$gfonts_language = carbon_get_theme_option( 'gfonts_language' );
+    $gfonts_name = carbon_get_theme_option( 'gfonts_name' );
+    $gfonts_import = carbon_get_theme_option( 'gfonts_import' ); ?>
+    <style>
+        <?=$is_gfonts_enabled && $gfonts_name && $gfonts_import && $gfonts_language && array_search( $current_language, $gfonts_language ) !== false ? $gfonts_import : ''; ?>
+
+        body,
+        a,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        button,
+        input,
+        textarea,
+        select {
+            font-family: <?=$is_gfonts_enabled && $gfonts_name && $gfonts_import && $gfonts_language && array_search( $current_language, $gfonts_language ) !== false ? "'{$gfonts_name}'" : "'Gotham Pro'"; ?>, sans-serif;
+        }
+    </style>
+    <?php
+}
+
+
+/**
  * Adding analytics
  */
 

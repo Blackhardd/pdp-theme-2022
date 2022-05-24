@@ -9,10 +9,14 @@ foreach( pdp_get_salons( 'ASC', false, 'ru' ) as $salon ){
 	$salons[$salon->ID] = $salon->post_title;
 }
 
+$languages = array( 'all' => __( 'Все', 'pdp' ) );
 $service_categories_name_fields = array();
 
-foreach( pll_languages_list( ['hide_empty' => false] ) as $lang ){
-	$service_categories_name_fields[] = Field::make( 'text', 'title_' . $lang === 'uk' ? 'ua' : $lang, sprintf( __( 'Название (%s)', 'pdp' ), $lang === 'uk' ? 'ua' : $lang ) );
+foreach( pll_the_languages( ['raw' => true, 'hide_empty' => false] ) as $lang ){
+	$slug = $lang['slug'] === 'uk' ? 'ua' : $lang['slug'];
+
+	$languages[$slug] = $lang['name'];
+	$service_categories_name_fields[] = Field::make( 'text', $slug , sprintf( __( 'Название (%s)', 'pdp' ), $slug ) );
 }
 
 Container::make( 'theme_options', 'PIED-DE-POULE' )
@@ -65,6 +69,14 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			->set_width( 30 ),
 		Field::make( 'text', 'thank_you_page', __( 'Страница «Спасибо»', 'pdp' ) )
 			->set_width( 15 )
+	) )
+	->add_tab( __( 'Шрифты', 'pdp' ), array(
+		Field::make( 'checkbox', 'gfonts_enabled', __( 'Использовать шрифт Google Fonts?', 'pdp' ) )
+			->set_option_value( 'yes' ),
+		Field::make( 'multiselect', 'gfonts_language', __( 'Choose Options' ) )
+		     ->set_options( $languages ),
+		Field::make( 'text', 'gfonts_name', __( 'Имя шрифта', 'pdp' ) ),
+		Field::make( 'textarea', 'gfonts_import', __( 'Импорт шрифта', 'pdp' ) )
 	) )
 	->add_tab( __( 'Аналитика', 'pdp' ), array(
 		Field::make( 'textarea', 'analytics_code', __( 'Коды аналитик (head)', 'pdp' ) ),
