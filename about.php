@@ -120,6 +120,7 @@ $page_id = get_the_ID();
                                 </div>
                             </div>
                         <?php endif; ?>
+                    </div>
 
                     <img src="<?=$about_services_count_image['1x']; ?>" data-src="<?=$about_services_count_image['1x']; ?>" data-srcset="<?=$about_services_count_image['1x']; ?> 1x, <?=$about_services_count_image['2x']; ?> 2x" class="image-row__image lazyload">
                 </div>
