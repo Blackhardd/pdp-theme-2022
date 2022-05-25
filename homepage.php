@@ -187,26 +187,31 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
 
                         <div class="image-row__desc"><?=wpautop( carbon_get_the_post_meta( 'about_services_content' ) ); ?></div>
 
-                        <div class="badge image-row__badge">
-                            <svg viewBox="0 0 158 158" width="158" height="158">
-                                <defs>
-                                    <path d="
-                                            M 14, 79
-                                            a 65, 65 0 1, 1 134, 0
-                                            a 65, 65 0 1, 1 -134, 0
-                                        " id="badge-desktop" />
-                                </defs>
-                                <text>
-                                    <textPath xlink:href="#badge-desktop">Время почистить перышки • Время почистить перышки •</textPath>
-                                </text>
-                            </svg>
+                        <?php if( carbon_get_the_post_meta( 'about_services_spinner_display' ) ) : ?>
+                            <?php
+                                
+                            $diameter = carbon_get_the_post_meta( 'about_services_spinner_diameter' );
+                            $radius = $diameter / 2;
 
-                            <div class="badge__logo">
-                                <svg width="32" height="32" fill="none">
-                                    <path d="M25.6 6.4V0l-6.4 6.4h-6.4L0 19.2h6.4l6.4-6.4v6.4h6.4l-6.4 6.4V32l12.8-12.8v-6.4L32 6.4h-6.4Z" fill="#0E0D0A" />
+                            ?>
+
+                            <div class="badge image-row__badge">
+                                <svg viewBox="0 0 <?=$diameter; ?> <?=$diameter; ?>" width="<?=$diameter; ?>" height="<?=$diameter; ?>">
+                                    <defs>
+                                        <path d="M 14, <?=$radius; ?> a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 <?=$diameter - 28; ?>, 0 a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 -<?=$diameter - 28; ?>, 0" id="badge-desktop" />
+                                    </defs>
+                                    <text>
+                                        <textPath xlink:href="#badge-desktop"><?=carbon_get_the_post_meta( 'about_services_spinner_text' ); ?></textPath>
+                                    </text>
                                 </svg>
+
+                                <div class="badge__logo">
+                                    <svg width="32" height="32" fill="none">
+                                        <path d="M25.6 6.4V0l-6.4 6.4h-6.4L0 19.2h6.4l6.4-6.4v6.4h6.4l-6.4 6.4V32l12.8-12.8v-6.4L32 6.4h-6.4Z" fill="#0E0D0A" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
 
                     <img data-src="<?=$about_services_image['1x']; ?>" data-srcset="<?=$about_services_image['1x']; ?> 1x, <?=$about_services_image['2x']; ?> 2x" class="image-row__image lazyload">

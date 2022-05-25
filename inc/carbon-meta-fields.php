@@ -91,7 +91,12 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'about_services_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'about_services_content', __( 'Контент', 'pdp' ) ),
 		Field::make( 'image', 'about_services_image1x', __( 'Изображение (1x)', 'pdp' ) ),
-		Field::make( 'image', 'about_services_image2x', __( 'Изображение (2x)', 'pdp' ) )
+		Field::make( 'image', 'about_services_image2x', __( 'Изображение (2x)', 'pdp' ) ),
+		Field::make( 'checkbox', 'about_services_spinner_display', __( 'Показывать спиннер', 'pdp' ) )
+	        ->set_option_value( 'yes' )
+	        ->set_default_value( 'yes' ),
+		Field::make( 'text', 'about_services_spinner_text', __( 'Текст спиннера', 'pdp' ) ),
+		Field::make( 'text', 'about_services_spinner_diameter', __( 'Диаметр спиннера', 'pdp' ) )
 	) )
 	->add_tab( __( 'Преимущества', 'pdp' ), array(
 		Field::make( 'checkbox', 'advantages_display', __( 'Показывать секцию', 'pdp' ) )
@@ -169,7 +174,13 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'hero_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'textarea', 'hero_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'image', 'hero_background1x', __( 'Фоновая картинка (1х)', 'pdp' ) ),
-		Field::make( 'image', 'hero_background2x', __( 'Фоновая картинка (2х)', 'pdp' ) )
+		Field::make( 'image', 'hero_background2x', __( 'Фоновая картинка (2х)', 'pdp' ) ),
+		Field::make( 'checkbox', 'hero_spinner_display', __( 'Показывать спиннер', 'pdp' ) )
+	        ->set_option_value( 'yes' )
+	        ->set_default_value( 'yes' ),
+		Field::make( 'text', 'hero_spinner_text', __( 'Текст спиннера', 'pdp' ) ),
+		Field::make( 'text', 'hero_spinner_diameter', __( 'Диаметр спиннера', 'pdp' ) ),
+		Field::make( 'text', 'hero_spinner_mobile_diameter', __( 'Диаметр мобильного спиннера', 'pdp' ) )
 	) )
 	->add_tab( __( 'Об услугах', 'pdp' ), array(
 		Field::make( 'checkbox', 'about_services_display', __( 'Показывать секцию', 'pdp' ) )
@@ -179,7 +190,12 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'about_services_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'rich_text', 'about_services_content', __( 'Контент', 'pdp' ) ),
 		Field::make( 'image', 'about_services_image1x', __( 'Изображение (1x)', 'pdp' ) ),
-		Field::make( 'image', 'about_services_image2x', __( 'Изображение (2x)', 'pdp' ) )
+		Field::make( 'image', 'about_services_image2x', __( 'Изображение (2x)', 'pdp' ) ),
+		Field::make( 'checkbox', 'about_services_spinner_display', __( 'Показывать спиннер', 'pdp' ) )
+	        ->set_option_value( 'yes' )
+	        ->set_default_value( 'yes' ),
+		Field::make( 'text', 'about_services_spinner_text', __( 'Текст спиннера', 'pdp' ) ),
+		Field::make( 'text', 'about_services_spinner_diameter', __( 'Диаметр спиннера', 'pdp' ) )
 	) )
 	->add_tab( __( 'Основатели', 'pdp' ), array(
 		Field::make( 'checkbox', 'founders_display', __( 'Показывать секцию', 'pdp' ) )
@@ -289,7 +305,13 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		Field::make( 'text', 'hero_title', __( 'Заголовок', 'pdp' ) ),
 		Field::make( 'textarea', 'hero_description', __( 'Описание', 'pdp' ) ),
 		Field::make( 'image', 'hero_background1x', __( 'Фоновая картинка (1х)', 'pdp' ) ),
-		Field::make( 'image', 'hero_background2x', __( 'Фоновая картинка (2х)', 'pdp' ) )
+		Field::make( 'image', 'hero_background2x', __( 'Фоновая картинка (2х)', 'pdp' ) ),
+		Field::make( 'checkbox', 'hero_spinner_display', __( 'Показывать спиннер', 'pdp' ) )
+	        ->set_option_value( 'yes' )
+	        ->set_default_value( 'yes' ),
+		Field::make( 'text', 'hero_spinner_text', __( 'Текст спиннера', 'pdp' ) ),
+		Field::make( 'text', 'hero_spinner_diameter', __( 'Диаметр спиннера', 'pdp' ) ),
+		Field::make( 'text', 'hero_spinner_mobile_diameter', __( 'Диаметр мобильного спиннера', 'pdp' ) )
 	) )
 	->add_tab( __( 'Подарки', 'pdp' ), array(
 		Field::make( 'complex', 'gifts', __( 'Варианты', 'pdp' ) )

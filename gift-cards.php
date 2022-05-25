@@ -49,43 +49,51 @@ foreach( $gifts as $gift ){
                     <div class="page-hero__subtitle"><?=carbon_get_the_post_meta( 'hero_description' ); ?></div>
                 </div>
 
-                <div class="page-hero__scroll-below scroll-below scroll-below--desktop">
-                    <svg viewBox="0 0 158 158" width="158" height="158">
-                        <defs>
-                            <path d="M 14, 79 a 65, 65 0 1, 1 134, 0 a 65, 65 0 1, 1 -134, 0" id="badge-desktop" />
-                        </defs>
-                        <text>
-                            <textPath xlink:href="#badge-desktop">
-                                Время почистить перышки • Время почистить перышки •
-                            </textPath>
-                        </text>
-                    </svg>
+                <?php if( carbon_get_the_post_meta( 'hero_spinner_display' ) ) : ?>
+                    <?php
+                                
+                    $diameter = carbon_get_the_post_meta( 'hero_spinner_diameter' );
+                    $radius = $diameter / 2;
 
-                    <a href="#gift-cards-items">
-                        <svg width="38" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 49.8V0h1v49.8l17.15-17.15.7.7-18 18a.5.5 0 0 1-.7 0l-18-18 .7-.7L18.5 49.79Z" fill="#fff"/>
+                    $mobile_diameter = carbon_get_the_post_meta( 'hero_spinner_mobile_diameter' );
+                    $mobile_radius = $mobile_diameter / 2;
+
+                    ?>
+
+                    <div class="page-hero__scroll-below scroll-below scroll-below--desktop">
+                        <svg viewBox="0 0 <?=$diameter; ?> <?=$diameter; ?>" width="<?=$diameter; ?>" height="<?=$diameter; ?>">
+                            <defs>
+                                <path d="M 14, <?=$radius; ?> a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 <?=$diameter - 28; ?>, 0 a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 -<?=$diameter - 28; ?>, 0" id="badge-desktop" />
+                            </defs>
+                            <text>
+                                <textPath xlink:href="#badge-desktop"><?=carbon_get_the_post_meta( 'hero_spinner_text' ); ?></textPath>
+                            </text>
                         </svg>
-                    </a>
-                </div>
 
-                <div class="page-hero__scroll-below scroll-below scroll-below--mobile">
-                    <svg viewBox="0 0 94 94" width="92" height="92">
-                        <defs>
-                            <path d="M 8, 46 a 38, 38 0 1, 1 76, 0 a 38, 38 0 1, 1 -76, 0" id="badge-mobile" />
-                        </defs>
-                        <text>
-                            <textPath xlink:href="#badge-mobile">
-                                Время почистить перышки • Время почистить перышки •
-                            </textPath>
-                        </text>
-                    </svg>
+                        <a href="#gift-cards-items">
+                            <svg width="38" height="52" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 49.8V0h1v49.8l17.15-17.15.7.7-18 18a.5.5 0 0 1-.7 0l-18-18 .7-.7L18.5 49.79Z" fill="#fff"/>
+                            </svg>
+                        </a>
+                    </div>
 
-                    <a href="#gift-cards-items">
-                        <svg width="22" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 27.8V0h1v27.8l9.15-9.15.7.7-10 10a.5.5 0 0 1-.7 0l-10-10 .7-.7 9.15 9.14Z" fill="#fff"/>
+                    <div class="page-hero__scroll-below scroll-below scroll-below--mobile">
+                        <svg viewBox="0 0 <?=$mobile_diameter; ?> <?=$mobile_diameter; ?>" width="<?=$mobile_diameter; ?>" height="<?=$mobile_diameter; ?>">
+                            <defs>
+                                <path d="M 8, <?=$mobile_radius; ?> a <?=$mobile_radius - 8; ?>, <?=$mobile_radius - 8; ?> 0 1, 1 <?=$mobile_diameter - 16; ?>, 0 a <?=$mobile_radius - 8; ?>, <?=$mobile_radius - 8; ?> 0 1, 1 -<?=$mobile_diameter - 16; ?>, 0" id="badge-mobile" />
+                            </defs>
+                            <text>
+                                <textPath xlink:href="#badge-mobile"><?=carbon_get_the_post_meta( 'hero_spinner_text' ); ?></textPath>
+                            </text>
                         </svg>
-                    </a>
-                </div>
+
+                        <a href="#gift-cards-items">
+                            <svg width="22" height="30" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 27.8V0h1v27.8l9.15-9.15.7.7-10 10a.5.5 0 0 1-.7 0l-10-10 .7-.7 9.15 9.14Z" fill="#fff"/>
+                            </svg>
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>

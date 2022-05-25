@@ -29,47 +29,51 @@ $page_id = get_the_ID();
 
                 <div class="page-hero__subtitle"><?=carbon_get_the_post_meta( 'hero_description' )?></div>
 
-                <div class="page-hero__scroll-below scroll-below scroll-below--desktop">
-                    <svg viewBox="0 0 158 158" width="158" height="158">
-                        <defs>
-                            <path d="
-                                    M 14, 79
-                                    a 65, 65 0 1, 1 134, 0
-                                    a 65, 65 0 1, 1 -134, 0
-                                " id="scroll-down-desktop" />
-                        </defs>
-                        <text>
-                            <textPath xlink:href="#scroll-down-desktop">Время почистить перышки • Время почистить перышки •</textPath>
-                        </text>
-                    </svg>
+                <?php if( carbon_get_the_post_meta( 'hero_spinner_display' ) ) : ?>
+                    <?php
+                                
+                    $diameter = carbon_get_the_post_meta( 'hero_spinner_diameter' );
+                    $radius = $diameter / 2;
 
-                    <a href="#about-services-count">
-                        <svg width="38" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 49.8V0h1v49.8l17.15-17.15.7.7-18 18a.5.5 0 0 1-.7 0l-18-18 .7-.7L18.5 49.79Z" fill="#fff"/>
+                    $mobile_diameter = carbon_get_the_post_meta( 'hero_spinner_mobile_diameter' );
+                    $mobile_radius = $mobile_diameter / 2;
+
+                    ?>
+
+                    <div class="page-hero__scroll-below scroll-below scroll-below--desktop">
+                        <svg viewBox="0 0 <?=$diameter; ?> <?=$diameter; ?>" width="<?=$diameter; ?>" height="<?=$diameter; ?>">
+                            <defs>
+                                <path d="M 14, <?=$radius; ?> a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 <?=$diameter - 28; ?>, 0 a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 -<?=$diameter - 28; ?>, 0" id="badge-desktop" />
+                            </defs>
+                            <text>
+                                <textPath xlink:href="#badge-desktop"><?=carbon_get_the_post_meta( 'hero_spinner_text' ); ?></textPath>
+                            </text>
                         </svg>
-                    </a>
-                </div>
 
-                <div class="page-hero__scroll-below scroll-below scroll-below--mobile">
-                    <svg viewBox="0 0 94 94" width="92" height="92">
-                        <defs>
-                            <path d="
-                                    M 8, 46
-                                    a 38, 38 0 1, 1 76, 0
-                                    a 38, 38 0 1, 1 -76, 0
-                                " id="scroll-down-mobile" />
-                        </defs>
-                        <text>
-                            <textPath xlink:href="#scroll-down-mobile">Время почистить перышки • Время почистить перышки •</textPath>
-                        </text>
-                    </svg>
+                        <a href="#gift-cards-items">
+                            <svg width="38" height="52" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 49.8V0h1v49.8l17.15-17.15.7.7-18 18a.5.5 0 0 1-.7 0l-18-18 .7-.7L18.5 49.79Z" fill="#fff"/>
+                            </svg>
+                        </a>
+                    </div>
 
-                    <a href="#about-services-count">
-                        <svg width="22" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 27.8V0h1v27.8l9.15-9.15.7.7-10 10a.5.5 0 0 1-.7 0l-10-10 .7-.7 9.15 9.14Z" fill="#fff"/>
+                    <div class="page-hero__scroll-below scroll-below scroll-below--mobile">
+                        <svg viewBox="0 0 <?=$mobile_diameter; ?> <?=$mobile_diameter; ?>" width="<?=$mobile_diameter; ?>" height="<?=$mobile_diameter; ?>">
+                            <defs>
+                                <path d="M 8, <?=$mobile_radius; ?> a <?=$mobile_radius - 8; ?>, <?=$mobile_radius - 8; ?> 0 1, 1 <?=$mobile_diameter - 16; ?>, 0 a <?=$mobile_radius - 8; ?>, <?=$mobile_radius - 8; ?> 0 1, 1 -<?=$mobile_diameter - 16; ?>, 0" id="badge-mobile" />
+                            </defs>
+                            <text>
+                                <textPath xlink:href="#badge-mobile"><?=carbon_get_the_post_meta( 'hero_spinner_text' ); ?></textPath>
+                            </text>
                         </svg>
-                    </a>
-                </div>
+
+                        <a href="#gift-cards-items">
+                            <svg width="22" height="30" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 27.8V0h1v27.8l9.15-9.15.7.7-10 10a.5.5 0 0 1-.7 0l-10-10 .7-.7 9.15 9.14Z" fill="#fff"/>
+                            </svg>
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -91,29 +95,31 @@ $page_id = get_the_ID();
 
                         <div class="image-row__desc"><?=wpautop( carbon_get_post_meta( $page_id, 'about_services_content' ) ); ?></div>
 
-                        <div class="badge image-row__badge">
-                            <svg viewBox="0 0 158 158" width="158" height="158">
-                                <defs>
-                                    <path d="
-                                            M 14, 79
-                                            a 65, 65 0 1, 1 134, 0
-                                            a 65, 65 0 1, 1 -134, 0
-                                        " id="badge-desktop" />
-                                </defs>
-                                <text>
-                                    <textPath xlink:href="#badge-desktop">
-                                        Время почистить перышки • Время почистить перышки •
-                                    </textPath>
-                                </text>
-                            </svg>
+                        <?php if( carbon_get_the_post_meta( 'about_services_spinner_display' ) ) : ?>
+                            <?php
+                                
+                            $diameter = carbon_get_the_post_meta( 'about_services_spinner_diameter' );
+                            $radius = $diameter / 2;
 
-                            <div class="badge__logo">
-                                <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M25.6 6.4V0l-6.4 6.4h-6.4L0 19.2h6.4l6.4-6.4v6.4h6.4l-6.4 6.4V32l12.8-12.8v-6.4L32 6.4h-6.4Z" fill="#0E0D0A"/>
+                            ?>
+
+                            <div class="badge image-row__badge">
+                                <svg viewBox="0 0 <?=$diameter; ?> <?=$diameter; ?>" width="<?=$diameter; ?>" height="<?=$diameter; ?>">
+                                    <defs>
+                                        <path d="M 14, <?=$radius; ?> a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 <?=$diameter - 28; ?>, 0 a <?=$radius - 14; ?>, <?=$radius - 14; ?> 0 1, 1 -<?=$diameter - 28; ?>, 0" id="badge-desktop" />
+                                    </defs>
+                                    <text>
+                                        <textPath xlink:href="#badge-desktop"><?=carbon_get_the_post_meta( 'about_services_spinner_text' ); ?></textPath>
+                                    </text>
                                 </svg>
+
+                                <div class="badge__logo">
+                                    <svg width="32" height="32" fill="none">
+                                        <path d="M25.6 6.4V0l-6.4 6.4h-6.4L0 19.2h6.4l6.4-6.4v6.4h6.4l-6.4 6.4V32l12.8-12.8v-6.4L32 6.4h-6.4Z" fill="#0E0D0A" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        <?php endif; ?>
 
                     <img src="<?=$about_services_count_image['1x']; ?>" data-src="<?=$about_services_count_image['1x']; ?>" data-srcset="<?=$about_services_count_image['1x']; ?> 1x, <?=$about_services_count_image['2x']; ?> 2x" class="image-row__image lazyload">
                 </div>
