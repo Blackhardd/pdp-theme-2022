@@ -354,7 +354,7 @@ class Booking {
         const $title = this._utils.createElement('div', 'booking-services-subcategory__title')
         const $items = this._utils.createElement('div', 'booking-services-subcategory__items')
 
-        $title.innerText = subcategory.name.ru
+        $title.innerText = subcategory.name[booking_i18n.lang]
 
         subcategory.services.forEach(service => {
             $items.appendChild(_this.renderSubcategoryItem(service))
