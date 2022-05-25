@@ -50,7 +50,7 @@ $page_id = get_the_ID();
                             </text>
                         </svg>
 
-                        <a href="#gift-cards-items">
+                        <a href="#about-services-count">
                             <svg width="38" height="52" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 49.8V0h1v49.8l17.15-17.15.7.7-18 18a.5.5 0 0 1-.7 0l-18-18 .7-.7L18.5 49.79Z" fill="#fff"/>
                             </svg>
@@ -67,7 +67,7 @@ $page_id = get_the_ID();
                             </text>
                         </svg>
 
-                        <a href="#gift-cards-items">
+                        <a href="#about-services-count">
                             <svg width="22" height="30" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 27.8V0h1v27.8l9.15-9.15.7.7-10 10a.5.5 0 0 1-.7 0l-10-10 .7-.7 9.15 9.14Z" fill="#fff"/>
                             </svg>
