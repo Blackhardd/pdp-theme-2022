@@ -11,12 +11,14 @@ foreach( pdp_get_salons( 'ASC', false, 'ru' ) as $salon ){
 
 $languages = array( 'all' => __( 'Все', 'pdp' ) );
 $service_categories_name_fields = array();
+$language_specific_css_fields = array();
 
 foreach( pll_the_languages( ['raw' => true, 'hide_empty' => false] ) as $lang ){
 	$slug = $lang['slug'] === 'uk' ? 'ua' : $lang['slug'];
 
 	$languages[$slug] = $lang['name'];
 	$service_categories_name_fields[] = Field::make( 'text', $slug , sprintf( __( 'Название (%s)', 'pdp' ), $slug ) );
+	$language_specific_css_fields[] = Field::make( 'textarea', "language_specific_css_{$slug}", sprintf( __( 'Стили (%s)', 'pdp' ), $slug ) );
 }
 
 Container::make( 'theme_options', 'PIED-DE-POULE' )
@@ -78,6 +80,7 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 		Field::make( 'text', 'gfonts_name', __( 'Имя шрифта', 'pdp' ) ),
 		Field::make( 'textarea', 'gfonts_import', __( 'Импорт шрифта', 'pdp' ) )
 	) )
+	->add_tab( __( 'CSS', 'pdp' ), $language_specific_css_fields )
 	->add_tab( __( 'Аналитика', 'pdp' ), array(
 		Field::make( 'textarea', 'analytics_code', __( 'Коды аналитик (head)', 'pdp' ) ),
 		Field::make( 'textarea', 'analytics_code_footer', __( 'Коды аналитик (footer)', 'pdp' ) ),

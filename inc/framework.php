@@ -65,6 +65,21 @@ function pdp_add_critical_css(){
 
 
 /**
+ *  Adding language specific CSS
+ */
+
+add_action( 'wp_head', 'pdp_add_language_specific_css' );
+
+function pdp_add_language_specific_css(){
+    $current_language = pdp_get_current_language();
+
+    if( $css = carbon_get_theme_option( "language_specific_css_{$current_language}" ) ) : ?>
+        <style id="<?=$current_language; ?>-specific-css"><?=$css; ?></style>
+    <?php endif;
+}
+
+
+/**
  *  Setting font
  */
 
