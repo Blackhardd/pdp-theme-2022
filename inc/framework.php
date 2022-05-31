@@ -17,7 +17,6 @@ function pdp_404_salon_redirect(){
 	global $post;
 
 	if( is_singular( 'salon' ) && $post->__get( '_outer_link' ) ){
-	    var_dump( $post->__get( '_outer_link' ) );
 		$wp_query->set_404();
 	}
 }
