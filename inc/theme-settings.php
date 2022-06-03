@@ -30,6 +30,7 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 		Field::make( 'text', 'email', 'Email' ),
 		Field::make( 'text', 'telegram_bot', 'Telegram бот' ),
 		Field::make( 'text', 'viber_bot', 'Viber бот' ),
+		Field::make( 'text', 'messenger_bot', 'Messenger бот' ),
 		Field::make( 'text', 'telegram', 'Telegram' ),
 		Field::make( 'text', 'instagram', 'Instagram' ),
 		Field::make( 'text', 'facebook', 'Facebook' ),
