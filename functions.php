@@ -144,7 +144,7 @@ function pdp_scripts(){
 		wp_enqueue_style( 'fonts', PDP_THEME_URL . '/assets/css/fonts.css', array(), PDP_THEME_VERSION );
 	}
 
-	wp_enqueue_style( 'style', PDP_THEME_URL . '/assets/css/index.min.css', array(), PDP_THEME_VERSION );
+	wp_enqueue_style( 'style', PDP_THEME_URL . '/assets/css/index.css', array(), PDP_THEME_VERSION );
 	wp_enqueue_script( 'script', PDP_THEME_URL . '/assets/js/index.js', array( 'jquery', 'micromodal' ), PDP_THEME_VERSION, true );
 
 
@@ -155,7 +155,7 @@ function pdp_scripts(){
 		wp_enqueue_script( 'gifts', PDP_THEME_URL . '/assets/js/gifts.js', array( 'jquery' ), PDP_THEME_VERSION, true );
 	}
 
-	if( !is_page_template( 'booking.php' ) ){
+	if( !is_page_template( array( 'booking.php', 'links.php' ) ) ){
 		wp_enqueue_script( 'header-cart', PDP_THEME_URL . '/assets/js/booking/components/HeaderCart.js', array( 'forms' ), PDP_THEME_VERSION, true );
 		wp_enqueue_script( 'header-cart-mobile', PDP_THEME_URL . '/assets/js/booking/components/HeaderCartMobile.js', array( 'forms' ), PDP_THEME_VERSION, true );
 

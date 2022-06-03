@@ -12,48 +12,50 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-    <header class="site-header site-header--desktop">
-        <div class="container">
-            <div class="site-header__inner">
-	            <?php get_template_part( 'templates/header/site-logo/desktop' ); ?>
+    <?php if( !is_page_template( 'links.php' ) ) : ?>
+        <header class="site-header site-header--desktop">
+            <div class="container">
+                <div class="site-header__inner">
+                    <?php get_template_part( 'templates/header/site-logo/desktop' ); ?>
 
-                <nav class="navigation navigation--header">
-	                <?php
-	                wp_nav_menu( array(
-		                'theme_location'    => 'header-menu',
-		                'menu_id'           => 'primary-menu',
-		                'walker'            => new PDP_Core_Menu_Walker()
-	                ) );
-	                ?>
-                </nav>
+                    <nav class="navigation navigation--header">
+                        <?php
+                        wp_nav_menu( array(
+                            'theme_location'    => 'header-menu',
+                            'menu_id'           => 'primary-menu',
+                            'walker'            => new PDP_Core_Menu_Walker()
+                        ) );
+                        ?>
+                    </nav>
 
-                <div class="header-actions">
-                    <?php get_template_part( 'templates/header/salons-menu/desktop' ); ?>
+                    <div class="header-actions">
+                        <?php get_template_part( 'templates/header/salons-menu/desktop' ); ?>
 
-                    <?php if( !is_page_template( 'booking.php' ) ) : ?>
-                        <?php get_template_part( 'templates/header/booking/desktop' ); ?>
-                    <?php endif; ?>
+                        <?php if( !is_page_template( 'booking.php' ) ) : ?>
+                            <?php get_template_part( 'templates/header/booking/desktop' ); ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php get_template_part( 'templates/header/lang-switcher/desktop' ); ?>
                 </div>
-
-                <?php get_template_part( 'templates/header/lang-switcher/desktop' ); ?>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <header class="site-header site-header--mobile">
-        <div class="container">
-            <div class="site-header__inner">
-	            <?php get_template_part( 'templates/header/site-logo/mobile' ); ?>
+        <header class="site-header site-header--mobile">
+            <div class="container">
+                <div class="site-header__inner">
+                    <?php get_template_part( 'templates/header/site-logo/mobile' ); ?>
 
-	            <?php get_template_part( 'templates/header/salons-menu/mobile' ); ?>
+                    <?php get_template_part( 'templates/header/salons-menu/mobile' ); ?>
 
-                <?php get_template_part( 'templates/header/navigation/mobile' ); ?>
+                    <?php get_template_part( 'templates/header/navigation/mobile' ); ?>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    <?php endif; ?>
 
     <main class="site-content">
-        <?php if( function_exists('yoast_breadcrumb') && !is_front_page() && !is_page_template( 'thank-you.php' ) ) : ?>
+        <?php if( function_exists('yoast_breadcrumb') && !is_front_page() && !is_page_template( array( 'thank-you.php', 'links.php' ) ) ) : ?>
             <section id="breadcrumbs">
                 <div class="container">
                     <?php yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); ?>

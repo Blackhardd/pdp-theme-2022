@@ -52,6 +52,10 @@ body {
     overflow-x: hidden;
 }
 
+body.without-header {
+    padding-top: 0;
+}
+
 ul {
     padding-left: 45px;
 }
@@ -785,7 +789,7 @@ a.btn:not([href]) {
  *  Site Content
  */
 
-.site-content {
+body:not(.without-header) .site-content {
     padding: 46px 0;
 }
 
@@ -4362,6 +4366,76 @@ fieldset:disabled .booking-cart-item__button {
 .vacancy-item--active .vacancy-item__action {
     align-items: flex-end;
 }
+
+
+/**
+ *  Links
+ */
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: #FFFFFF;
+}
+
+.links__logo {
+    animation: fadeInTop backwards 500ms ease-out;
+}
+
+.links__list {
+    list-style: none;
+    margin: 22px 0 24px;
+    padding: 0;
+}
+
+.links__list > li {
+    animation: kf_scaleIn backwards 500ms ease-out;
+}
+
+.links__list > li:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.links__list > li:nth-child(1) {
+    animation-delay: 500ms;
+}
+
+.links__list > li:nth-child(2) {
+    animation-delay: 750ms;
+}
+
+.links__list > li:nth-child(3) {
+    animation-delay: 1000ms;
+}
+
+.links__list > li:nth-child(4) {
+    animation-delay: 1250ms;
+}
+
+.links__list > li:nth-child(5) {
+    animation-delay: 1500ms;
+}
+
+.links__list a {
+    min-width: 190px;
+}
+
+.links__franchise {
+    border-bottom: 1px solid #AA957C;
+    animation: fadeInBottom backwards 500ms ease-out;
+    animation-delay: 1750ms;
+}
+
+.links__franchise a {
+    color: var(--brown-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
 
 
 /**

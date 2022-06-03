@@ -29,10 +29,11 @@ function pdp_404_salon_redirect(){
 add_filter( 'body_class', 'pdp_body_classes' );
 
 function pdp_body_classes( $classes ){
-	// Adds a class of hfeed to non-singular pages.
-	if ( !is_singular() ){
+	if( !is_singular() )
 		$classes[] = 'hfeed';
-	}
+
+	if( is_page_template( array( 'links.php' ) ) )
+		$classes[] = 'without-header';
 
 	return $classes;
 }
@@ -797,7 +798,7 @@ function pdp_set_salons_archive_query( $query ){
 add_action( 'wp_footer', 'pdp_add_fixed_contacts_button' );
 
 function pdp_add_fixed_contacts_button(){
-    if( !is_page_template( 'booking.php' ) ){
+    if( !is_page_template( array( 'booking.php', 'links.php' ) ) ){
 	    get_template_part( 'templates/widgets/fixed-contacts' );
     }
 }

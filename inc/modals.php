@@ -7,7 +7,7 @@
 add_action( 'wp_footer', 'pdp_add_booking_cart_mobile_modal' );
 
 function pdp_add_booking_cart_mobile_modal(){
-	if( !is_page_template( 'booking.php' ) ) : ?>
+	if( !is_page_template( array( 'booking.php', 'links.php' ) ) ) : ?>
         <div class="modal modal--center" id="modal-booking-cart" aria-hidden="true">
             <div class="modal__dimmer" data-micromodal-close></div>
 
@@ -31,7 +31,7 @@ function pdp_add_booking_cart_mobile_modal(){
 add_action( 'wp_footer', 'pdp_add_booking_modal' );
 
 function pdp_add_booking_modal(){
-    if( !is_page_template( 'booking.php' ) ) : ?>
+    if( !is_page_template( array( 'booking.php', 'links.php' ) ) ) : ?>
         <div class="modal modal--center" id="modal-booking" aria-hidden="true">
             <div class="modal__dimmer" data-micromodal-close></div>
 
