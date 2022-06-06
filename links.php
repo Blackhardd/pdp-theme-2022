@@ -26,7 +26,7 @@ get_header(); ?>
         </div>
 
         <div class="links-bot">
-            <div class="links-title"><?=__( 'Online-bot запись', 'pdp' ); ?></div>
+            <div class="links-title"><?=__( 'Online-боты записи', 'pdp' ); ?></div>
 
             <ul class="links-bot__list">
 	            <?php if( $link = carbon_get_theme_option( 'viber_bot' ) ) : ?>
