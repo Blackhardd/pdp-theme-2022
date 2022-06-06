@@ -142,7 +142,7 @@ function pdp_scripts(){
 		wp_enqueue_style( 'fonts', PDP_THEME_URL . '/assets/css/fonts.css', array(), PDP_THEME_VERSION );
 	}
 
-	wp_enqueue_style( 'style', PDP_THEME_URL . '/assets/css/index.css', array(), PDP_THEME_VERSION );
+	wp_enqueue_style( 'style', PDP_THEME_URL . '/assets/css/index.min.css', array(), PDP_THEME_VERSION );
 	wp_enqueue_script( 'script', PDP_THEME_URL . '/assets/js/index.js', array( 'jquery', 'micromodal' ), PDP_THEME_VERSION, true );
 
 
