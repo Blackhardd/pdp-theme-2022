@@ -124,6 +124,10 @@ function pdp_scripts(){
 		'salons'        => pdp_get_salons_data()
 	) );
 
+	wp_localize_script( 'map', 'map_i18n', array(
+		'enroll' => __( 'Записаться', 'pdp' )
+	) );
+
 	wp_register_script( 'forms', PDP_THEME_URL . '/assets/js/forms.js', array( 'jquery' ), PDP_THEME_VERSION, true );
 	wp_localize_script( 'forms', 'formsData', array(
 		'ajaxUrl'       => admin_url( 'admin-ajax.php' )
