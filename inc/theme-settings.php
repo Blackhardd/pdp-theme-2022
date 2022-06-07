@@ -62,18 +62,22 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			->set_options( pdp_get_banners() )
 			->set_width( 50 ),
 		Field::make( 'html', 'forms_heading' )
-			->set_html( sprintf( '<h2>%s</h2>', 'Формы' ) ),
+			->set_html( sprintf( '<h2>%s</h2>', __( 'Формы', 'pdp' ) ) ),
 		Field::make( 'select', 'forms_show_salon_select', __( 'Выбор салона в формах', 'pdp' ) )
 			->set_options( array(
 				'1' => __( 'Показывать', 'pdp' ),
 				'0' => __( 'Скрывать', 'pdp' )
 			) )
-			->set_width( 30 ),
+			->set_width( 50 ),
 		Field::make( 'select', 'forms_default_salon', __( 'Салон по умолчанию', 'pdp' ) )
 			->set_options( $salons )
-			->set_width( 30 ),
-		Field::make( 'text', 'thank_you_page', __( 'Страница «Спасибо»', 'pdp' ) )
-			->set_width( 15 )
+			->set_width( 50 ),
+		Field::make( 'html', 'service_pages_heading' )
+			->set_html( sprintf( '<h2>%s</h2>', __( 'Служебные страницы', 'pdp' ) ) ),
+		Field::make( 'select', 'thank_you_page', __( 'Страница «Спасибо»', 'pdp' ) )
+			->set_options( array( '' => __( 'Выберите страницу', 'pdp' ) ) + pdp_get_pages() ),
+		Field::make( 'select', 'contacts_page', __( 'Страница контактов', 'pdp' ) )
+		     ->set_options( array( '' => __( 'Выберите страницу', 'pdp' ) ) + pdp_get_pages() )
 	) )
 	->add_tab( __( 'Шрифты', 'pdp' ), array(
 		Field::make( 'checkbox', 'gfonts_enabled', __( 'Использовать шрифт Google Fonts?', 'pdp' ) )

@@ -169,8 +169,30 @@ function pdp_pagination_template( $template, $class ){
 	return '
         <nav class="navigation %1$s" role="navigation">
             <div class="nav-links">%3$s</div>
-        </nav>    
+        </nav>
 	';
+}
+
+
+/**
+ * Adding custom post states.
+ */
+
+add_filter( 'display_post_states', 'pdp_custom_posts_state' );
+
+function pdp_custom_posts_state( $states ){
+    global $post;
+
+    $default_language = pll_default_language();
+
+    if( pll_get_post( $post->ID, $default_language ) == get_option( '_thank_you_page' ) ){
+        $states[] = __( 'Страница «Спасибо»', 'pdp' );
+    }
+    else if( pll_get_post( $post->ID, $default_language ) == get_option( '_contacts_page' ) ){
+	    $states[] = __( 'Контакты', 'pdp' );
+    }
+
+    return $states;
 }
 
 
@@ -346,6 +368,69 @@ function pdp_add_anchors_to_content( $content ){
 
 		return "<h2 id='toc_anchor_{$count}'>";
 	}, $content );
+}
+
+
+/**
+ * Getting all pages in default language 'id' => 'post_title format.
+ * @return array
+ */
+function pdp_get_pages( $lang = '' ){
+    $pages = array();
+
+    foreach( get_posts( array( 'post_type' => 'page', 'numberposts' => -1, 'lang' => $lang ? $lang : pll_default_language() ) ) as $page ){
+        $pages[$page->ID] = $page->post_title;
+    }
+
+    return $pages;
+}
+
+
+/**
+ * Retrieving service page ID.
+ * @param string $slug Slug of service page.
+ * @return int|boolean ID of service page or false.
+ */
+function pdp_get_service_page( $slug ){
+    if( !$slug )
+        return false;
+
+	if( $id = carbon_get_theme_option( $slug . '_page' ) ){
+		$pll_id = pll_get_post( $id );
+		return $pll_id ? $pll_id : $id;
+	}
+
+	return false;
+}
+
+
+/**
+ * Retrieving «Thank You» page ID.
+ * @return int|boolean ID of «Thank You» page or false.
+ */
+function pdp_get_thank_you_page(){
+    return pdp_get_service_page( 'thank_you' );
+}
+
+
+/**
+ * Retrieving «Thank You» page link.
+ * @return string|boolean Link to «Thank You» page or false.
+ */
+function pdp_get_thank_you_page_link(){
+    return get_permalink( pdp_get_thank_you_page() );
+}
+
+/**
+ * Retrieving contacts page link.
+ * @param int|string $salon ID of salon to display on visiting page.
+ * @return string|boolean Link to contacts page or false.
+ */
+function pdp_get_contacts_page_link( $salon = false ){
+    if( $salon )
+        return add_query_arg( array( 'salonId' => $salon ), get_permalink( pdp_get_service_page( 'contacts' ) ) );
+
+    return get_permalink( pdp_get_service_page( 'contacts' ) );
 }
 
 

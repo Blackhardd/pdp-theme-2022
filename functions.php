@@ -118,7 +118,7 @@ function pdp_scripts(){
 
 	wp_register_script( 'map', PDP_THEME_URL . '/assets/js/map.js', array( 'jquery', 'google-maps' ), PDP_THEME_VERSION, true );
 	wp_localize_script( 'map', 'mapData', array(
-		'contactsUrl'   => get_permalink( pll_get_post( 549 ) ),
+		'contactsUrl'   => pdp_get_contacts_page_link(),
 		'mainCity'      => pdp_get_main_city( pll_current_language() ),
 		'cities'        => pdp_get_salon_cities_map_data(),
 		'salons'        => pdp_get_salons_data()

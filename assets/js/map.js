@@ -231,7 +231,7 @@ function initMap(){
                         </div>
                         <div class="map-info__footer">
                             <a href="tel:${salon.phone}" class="btn btn--outline btn--square-icon">
-                                <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="16" height="16" fill="none">
                                     <path d="m15.64 12.66-2.47-2.48c-.5-.5-1.3-.48-1.82.03l-1.24 1.25-.25-.14a12.39 12.39 0 0 1-3-2.17c-1.13-1.14-1.72-2.22-2.16-3l-.13-.24.83-.84.41-.41a1.3 1.3 0 0 0 .03-1.82L3.37.36c-.49-.5-1.3-.48-1.81.03l-.7.7.02.02a4.04 4.04 0 0 0-.83 2.05c-.33 2.7.91 5.19 4.26 8.55 4.64 4.65 8.38 4.3 8.54 4.28a4.16 4.16 0 0 0 2.04-.83h.01l.7-.68c.52-.51.53-1.33.04-1.82Z" />
                                 </svg>
                             </a>
