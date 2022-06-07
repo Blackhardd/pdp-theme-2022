@@ -164,7 +164,7 @@ class HeaderCartComponent {
             <div class="booking-cart-item">
                 <button class="booking-cart-item__button" data-id="${service.id}"></button>
                 <div class="booking-cart-item__name">${service.name[headerCart_i18n.lang]}</div>
-                <div class="booking-cart-item__price"><span class="amount">${this._cart.extractPrice(service)}</span><span class="currency">₴</span></div>
+                <div class="booking-cart-item__price"><span class="amount">${this._cart.extractPrice(service)}</span>${headerCart_i18n.currency}</div>
             </div>
         `
     }

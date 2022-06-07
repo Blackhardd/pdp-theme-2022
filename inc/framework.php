@@ -277,6 +277,29 @@ function pdp_get_current_language(){
 
 
 /**
+ * Getting currency for current language by default.
+ * @param string $lang optional
+ * @return string Currency if exists for current language or empty string.
+ */
+function pdp_get_currency( $lang = '' ){
+    $lang = $lang ? $lang : pdp_get_current_language();
+    $currency = carbon_get_theme_option( "currency_{$lang}" );
+
+    return $currency ? $currency : '';
+}
+
+/**
+ * Getting currency HTML for current language by default.
+ * @param string $lang optional
+ * @return string Currency HTML if exists for current language or empty string.
+ */
+function pdp_get_currency_html( $lang = '' ){
+    $space = carbon_get_theme_option( 'currency_display_type' ) === 'spaced' ? ' ' : '';
+    return $space . '<span class="currency">' . pdp_get_currency( $lang ) . '</span>';
+}
+
+
+/**
  *  Getting image from theme folder
  */
 

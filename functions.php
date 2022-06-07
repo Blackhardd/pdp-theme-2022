@@ -163,6 +163,7 @@ function pdp_scripts(){
 
 		wp_localize_script( 'header-cart', 'headerCart_i18n', array(
 			'lang'      => pdp_get_current_language(),
+			'currency'  => pdp_get_currency_html(),
 		) );
 
 		wp_localize_script( 'header-cart-mobile', 'headerCartMobileData', array(
@@ -171,6 +172,7 @@ function pdp_scripts(){
 
 		wp_localize_script( 'header-cart-mobile', 'headerCartMobile_i18n', array(
 			'lang'      => pdp_get_current_language(),
+			'currency'  => pdp_get_currency_html()
 		) );
 	}
 
@@ -186,6 +188,7 @@ function pdp_scripts(){
 
 		wp_localize_script( 'booking', 'booking_i18n', array(
 			'lang'      => pdp_get_current_language(),
+			'currency'  => pdp_get_currency_html(),
 			'loading'   => __( 'Загрузка', 'pdp' )
 		) );
 	}

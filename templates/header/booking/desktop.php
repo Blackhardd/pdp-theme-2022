@@ -62,7 +62,7 @@
 
                             <div class="form__actions booking-cart__footer">
                                 <button class="btn booking-cart__submit" type="submit" disabled><span><?=__( 'Записаться', 'pdp' ); ?></span></button>
-                                <div class="booking-cart__total"><span class="amount">0</span><span class="currency">₴</span></div>
+                                <div class="booking-cart__total"><span class="amount">0</span><span class="currency"><?=pdp_get_currency(); ?></span></div>
                             </div>
 
                             <input type="hidden" name="cart" value="">

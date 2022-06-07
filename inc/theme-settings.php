@@ -12,6 +12,7 @@ foreach( pdp_get_salons( 'ASC', false, 'ru' ) as $salon ){
 $languages = array( 'all' => __( 'Все', 'pdp' ) );
 $service_categories_name_fields = array();
 $language_specific_css_fields = array();
+$language_specific_currencies = array();
 
 foreach( pll_the_languages( ['raw' => true, 'hide_empty' => false] ) as $lang ){
 	$slug = $lang['slug'] === 'uk' ? 'ua' : $lang['slug'];
@@ -19,6 +20,7 @@ foreach( pll_the_languages( ['raw' => true, 'hide_empty' => false] ) as $lang ){
 	$languages[$slug] = $lang['name'];
 	$service_categories_name_fields[] = Field::make( 'text', $slug , sprintf( __( 'Название (%s)', 'pdp' ), $slug ) );
 	$language_specific_css_fields[] = Field::make( 'textarea', "language_specific_css_{$slug}", sprintf( __( 'Стили (%s)', 'pdp' ), $slug ) );
+	$language_specific_currencies[] = Field::make( 'text', "currency_{$slug}", sprintf( __( 'Валюта (%s)', 'pdp' ), $slug ) )->set_default_value( '₴' );
 }
 
 Container::make( 'theme_options', 'PIED-DE-POULE' )
@@ -111,7 +113,7 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			        ->set_width( 25 )
 			) ) )
 	) )
-	->add_tab( __( 'Прайслисты', 'pdp' ), array(
+	->add_tab( __( 'Прайслисты', 'pdp' ), array_merge( array(
 		Field::make( 'html', 'google_api_heading' )
 		     ->set_html( sprintf( '<h2>%s</h2>', 'Google API' ) ),
 		Field::make( 'text', 'google_client_id', __( 'ID клента', 'pdp' ) )
@@ -119,15 +121,23 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 		Field::make( 'text', 'google_secret', __( 'Секретный код клента', 'pdp' ) )
 		     ->set_width( 50 ),
 		Field::make( 'html', 'prices_autoupdate_heading' )
-		     ->set_html( sprintf( '<h2>%s</h2>', 'Ежедневное обновление' ) ),
+		     ->set_html( sprintf( '<h2>%s</h2>', __( 'Ежедневное обновление', 'pdp' ) ) ),
 		Field::make( 'select', 'prices_autoupdate_enabled', __( 'Включено', 'pdp' ) )
 			->set_options( array(
 				'true'      => __( 'Да', 'pdp' ),
 				'false'     => __( 'Нет', 'pdp' )
 			) )
 			->set_default_value( 'false' )
-			->set_width( 100 )
-	) )
+			->set_width( 100 ),
+		Field::make( 'html', 'prices_currency_heading' )
+			->set_html( sprintf( '<h2>%s</h2>', __( 'Настройки валют', 'pdp' ) ) ),
+		Field::make( 'select', 'currency_display_type', __( 'Тип отображения', 'pdp' ) )
+			->set_options( array(
+				'spaced'        => __( 'С пробелом', 'pdp' ),
+				'not_spaced'    => __( 'Без пробела', 'pdp' )
+			) )
+			->set_default_value( 'not_spaced' )
+	), $language_specific_currencies ) )
 	->add_tab( 'Instagram', array(
 		Field::make( 'text', 'instagram_app_id', __( 'App ID', 'pdp' ) ),
 		Field::make( 'text', 'instagram_app_secret', __( 'App Secret', 'pdp' ) )

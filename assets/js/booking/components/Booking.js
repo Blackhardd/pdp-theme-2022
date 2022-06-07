@@ -372,7 +372,6 @@ class Booking {
         const $name = this._utils.createElement('div', 'booking-service-item__name')
         const $priceWrapper = this._utils.createElement('div', 'booking-service-item__price')
         const $price = this._utils.createElement('span', 'amount')
-        const $currency = this._utils.createElement('span', 'currency')
         const $button = this._utils.createElement('button', 'booking-service-item__button')
 
         if(this._cart.isServiceAdded(service)){
@@ -381,11 +380,11 @@ class Booking {
 
         $name.innerText = service.name[booking_i18n.lang]
         $price.innerText = this._cart.extractPrice(service)
-        $currency.innerText = '₴'
 
         $button.dataset.id = service.id
 
-        $priceWrapper.append($price, $currency)
+        $priceWrapper.append($price)
+        $priceWrapper.insertAdjacentHTML('beforeend', booking_i18n.currency)
         $info.append($name, $priceWrapper)
         $wrapper.append($info, $button)
 
@@ -432,14 +431,13 @@ class Booking {
         const $name = this._utils.createElement('div', 'booking-cart-item__name')
         const $price = this._utils.createElement('div', 'booking-cart-item__price')
         const $amount = this._utils.createElement('span', 'amount')
-        const $currency = this._utils.createElement('span', 'currency')
 
         $button.dataset.id = service.id
         $name.innerText = service.name[booking_i18n.lang]
         $amount.innerText = this._cart.extractPrice(service)
-        $currency.innerText = '₴'
 
-        $price.append($amount, $currency)
+        $price.append($amount)
+        $price.insertAdjacentHTML('beforeend', booking_i18n.currency)
         $wrapper.append($button, $name, $price)
 
         return $wrapper
