@@ -1,4 +1,5 @@
 <?php
+
 $socials_list = array(
     array(
         'title' => 'mail',
@@ -35,17 +36,22 @@ $socials_list = array(
             <svg width="29" height="28" fill="none"><g clip-path="url(#clip0)"><path d="M27.6 6.2C27 5 26.1 4.6 24.4 4.5a201.6 201.6 0 00-19.1 0C3.6 4.6 2.8 5 2 6.2 1.2 7.6.8 10 .8 14c0 4 .4 6.4 1.2 7.8.8 1.3 1.6 1.6 3.3 1.7a227.7 227.7 0 0019 0c1.8-.1 2.6-.4 3.3-1.7.8-1.4 1.2-3.7 1.2-7.8s-.4-6.4-1.2-7.8zm-16.3 13V8.8l8.8 5.2-8.8 5.3z" fill="#0E0D0A"/></g><defs><clipPath id="clip0"><path fill="#fff" transform="translate(.8)" d="M0 0h28v28H0z"/></clipPath></defs></svg>
         '
     )
-); ?>
+);
+
+?>
 
 <div class="socials">
     <ul class="socials__list">
         <?php
         foreach( $socials_list as $socials_item ){
-            if( !empty( $socials_item['url'] ) ){ ?>
+            if( !empty( $socials_item['url'] ) ){
+
+                ?>
                 <li class="socials__item socials__item_<?=$socials_item['title']; ?>">
-                    <a href="<?php if( $socials_item['title'] == 'mail' ){ echo 'mailto:'; } ?><?=$socials_item['url']; ?>" class="socials__itemLink" target="_blank"><?=$socials_item['icon']; ?></a>
+                    <a href="<?= $socials_item['title'] === 'mail' ? "mailto:{$socials_item['url']}" : $socials_item['url']; ?>" class="socials__itemLink" target="_blank"><?=$socials_item['icon']; ?></a>
                 </li>
                 <?php
+
             }
         } ?>
     </ul>

@@ -4427,7 +4427,7 @@ fieldset:disabled .booking-cart-item__button {
 }
 
 .links-list a {
-    min-width: 174px;
+    min-width: 200px;
 }
 
 
@@ -4462,6 +4462,10 @@ fieldset:disabled .booking-cart-item__button {
 .links-quality {
     animation: kf_scaleIn backwards 500ms ease-out;
     animation-delay: 1200ms;
+}
+
+.links-quality a {
+    min-width: 200px;
 }
 
 
