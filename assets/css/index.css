@@ -5692,7 +5692,7 @@ fieldset:disabled .booking-cart-item__button {
     }
 
     #home-advantages {
-        display: none;
+        margin-bottom: 50px;
     }
 
     #home-testimonials {
