@@ -20,7 +20,7 @@ $slides = carbon_get_post_meta( $page_id, 'slides' );
                         $background1x_url = wp_get_attachment_image_url( $slide['background1x'] ,'full' );
                         $background2x_url = wp_get_attachment_image_url( $slide['background2x'] ,'full' );
                         ?>
-                        <div class="slide slide--home slide--<?=$slide['type']; ?> swiper-slide">
+                        <div class="slide slide--home slide--<?=$slide['type']; ?> slide--heading-<?=$slide['heading_size']; ?> swiper-slide">
                             <img src="<?=$background1x_url; ?>" data-src="<?=$background1x_url; ?>" data-srcset="<?=$background1x_url; ?> 1x, <?=$background2x_url; ?> 2x" class="slide__image lazyload">
 
                             <div class="slide__content" <?=$slide['width'] ? "style='max-width: {$slide['width']};'" : ''; ?>>

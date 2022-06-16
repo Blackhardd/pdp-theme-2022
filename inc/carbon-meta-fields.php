@@ -21,6 +21,12 @@ Container::make( 'post_meta', __( 'Настройки шаблона', 'pdp' ) )
 		             ) )
 		             ->set_default_value( 'dark' ),
 			    Field::make( 'text', 'width', __( 'Ширина контента', 'pdp' ) ),
+				Field::make( 'select', 'heading_size', __( 'Размер заголовка', 'pdp' ) )
+					->add_options( array(
+						'default'   => __( 'Обычный', 'pdp' ),
+						'large'     => __( 'Большой', 'pdp' )
+					) )
+					->set_default_value( 'default' ),
 				Field::make( 'text', 'overtitle', __( 'Надзаголовок', 'pdp' ) ),
 				Field::make( 'text', 'title', __( 'Заголовок', 'pdp' ) ),
 				Field::make( 'text', 'description', __( 'Описание', 'pdp' ) ),

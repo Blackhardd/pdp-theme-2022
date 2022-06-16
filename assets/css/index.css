@@ -856,11 +856,6 @@ body:not(.without-header) .site-content {
     line-height: 42px;
 }
 
-h1.slide__heading {
-    font-size: 64px;
-    line-height: 68px;
-}
-
 .slide__heading > span {
     display: block;
 }
@@ -902,6 +897,11 @@ h1.slide__heading {
 
 .slide--light .slide__overtitle {
     color: var(--brown-color);
+}
+
+.slide--heading-large .slide__heading {
+    font-size: 64px;
+    line-height: 68px;
 }
 
 
