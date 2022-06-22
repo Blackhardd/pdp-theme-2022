@@ -501,6 +501,10 @@
     grid-gap: 32px;
 }
 
+.desktop-salons-panel__list > .col > p {
+    display: none;
+}
+
 .desktop-salons-panel__banner {
     max-width: 464px;
     margin-left: auto;
