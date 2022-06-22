@@ -200,10 +200,45 @@ function pdp_scripts(){
 
 
 /**
+ * Register widget areas.
+ */
+
+add_action( 'widgets_init', 'pdp_widgets_init' );
+
+function pdp_widgets_init(){
+	register_sidebar( array(
+		'name'              => __( 'Список салонов - Левая колонка', 'pdp' ),
+		'id'                => 'header_salons_left',
+		'before_widget'     => '',
+		'after_widget'      => ''
+	) );
+
+	register_sidebar( array(
+		'name'              => __( 'Список салонов - Центральная колонка', 'pdp' ),
+		'id'                => 'header_salons_center',
+		'before_widget'     => '',
+		'after_widget'      => ''
+	) );
+
+	register_sidebar( array(
+		'name'              => __( 'Список салонов - Правая колонка', 'pdp' ),
+		'id'                => 'header_salons_right',
+		'before_widget'     => '',
+		'after_widget'      => ''
+	) );
+}
+
+
+/**
  * Functions which enhance the theme by hooking into WordPress.
  */
 
 require PDP_THEME_DIR . '/inc/framework.php';
+
+
+// Require theme shortcodes.
+
+require PDP_THEME_DIR . '/inc/shortcodes.php';
 
 
 /**

@@ -18,61 +18,15 @@ $cities = pdp_get_salons_grouped_by_city();
 			<div class="desktop-salons-panel__inner">
 				<div class="desktop-salons-panel__list">
 					<div class="col">
-						<div class="salons-list">
-							<div class="salons-list__city"><?=__( 'Киев', 'pdp' ); ?></div>
-
-							<div class="salons-list__items">
-								<?php foreach( $cities[__( 'Киев', 'pdp' )] as $salon ) : ?>
-									<div class="salons-list-item">
-										<div class="salons-list-item__address"><?=$salon['name']; ?></div>
-										<a href="tel:<?=$salon['phone']; ?>" class="salons-list-item__phone"><?=$salon['phone']; ?></a>
-									</div>
-								<?php endforeach; ?>
-							</div>
-						</div>
+						<?php dynamic_sidebar( 'header_salons_left' ); ?>
 					</div>
 
 					<div class="col">
-						<div class="salons-list">
-							<div class="salons-list__city"><?=__( 'Харьков', 'pdp' ); ?></div>
-
-							<div class="salons-list__items">
-								<?php foreach( $cities[__( 'Харьков', 'pdp' )] as $salon ) : ?>
-									<div class="salons-list-item">
-										<div class="salons-list-item__address"><?=$salon['name']; ?></div>
-										<a href="tel:<?=$salon['phone']; ?>" class="salons-list-item__phone"><?=$salon['phone']; ?></a>
-									</div>
-								<?php endforeach; ?>
-							</div>
-						</div>
+						<?php dynamic_sidebar( 'header_salons_center' ); ?>
 					</div>
 
 					<div class="col">
-						<div class="salons-list">
-							<div class="salons-list__city"><?=__( 'Одесса', 'pdp' ); ?></div>
-
-							<div class="salons-list__items">
-								<?php foreach( $cities[__( 'Одесса', 'pdp' )] as $salon ) : ?>
-									<div class="salons-list-item">
-										<div class="salons-list-item__address"><?=$salon['name']; ?></div>
-										<a href="tel:<?=$salon['phone']; ?>" class="salons-list-item__phone"><?=$salon['phone']; ?></a>
-									</div>
-								<?php endforeach; ?>
-							</div>
-						</div>
-
-						<div class="salons-list">
-							<div class="salons-list__city"><?=__( 'Владимир-Волынский', 'pdp' ); ?></div>
-
-							<div class="salons-list__items">
-								<?php foreach( $cities[__( 'Владимир-Волынский', 'pdp' )] as $salon ) : ?>
-									<div class="salons-list-item">
-										<div class="salons-list-item__address"><?=$salon['name']; ?></div>
-										<a href="tel:<?=$salon['phone']; ?>" class="salons-list-item__phone"><?=$salon['phone']; ?></a>
-									</div>
-								<?php endforeach; ?>
-							</div>
-						</div>
+						<?php dynamic_sidebar( 'header_salons_right' ); ?>
 					</div>
 				</div>
 

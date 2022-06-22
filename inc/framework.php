@@ -550,7 +550,7 @@ function pdp_get_salon_data( $id ){
  *  Getting salons
  */
 
-function pdp_get_salons( $order = 'ASC', $lang = false ){
+function pdp_get_salons( $order = 'ASC', $lang = false, $city = false ){
 	$params = array(
 		'numberposts'   => -1,
 		'post_type'     => 'salon',
@@ -560,8 +560,15 @@ function pdp_get_salons( $order = 'ASC', $lang = false ){
 	if( $lang ){
 		$params['lang'] = $lang === 'all' ? '' : $lang;
 	}
-	else{
-	    $params['lang'] = pll_current_language();
+
+	if( $city ){
+	    $params['tax_query'] = [
+	        array(
+	            'taxonomy'  => 'city',
+                'field'     => 'name',
+                'terms'     => $city
+            )
+        ];
     }
 
 	return get_posts( $params ) ;
@@ -572,9 +579,9 @@ function pdp_get_salons( $order = 'ASC', $lang = false ){
  *  Getting salons data
  */
 
-function pdp_get_salons_data(){
+function pdp_get_salons_data( $city = false ){
 	$data = array();
-	$salons = pdp_get_salons();
+	$salons = pdp_get_salons( 'ASC', false, $city );
 
 	foreach( $salons as $salon ){
 		$title = carbon_get_post_meta( $salon->ID, 'title' );
