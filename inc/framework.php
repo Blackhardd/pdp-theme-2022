@@ -900,8 +900,8 @@ function pdp_get_hair_lengths(){
 add_action( 'pre_get_posts', 'pdp_set_salons_archive_query' );
 
 function pdp_set_salons_archive_query( $query ){
-    if( $query->is_post_type_archive( 'salon' ) && $query->is_main_query() ){
-        $query->set( 'posts_per_page', 12 );
+    if( !is_admin() && $query->is_post_type_archive( 'salon' ) && $query->is_main_query() ){
+        $query->set( 'posts_per_page', -1 );
     }
 }
 
