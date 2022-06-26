@@ -906,6 +906,7 @@ function pdp_set_salons_archive_query( $query ){
         $query->set( 'posts_per_page', -1 );
 	    $query->set( 'meta_key', '_order_position' );
 	    $query->set( 'orderby', 'meta_value' );
+	    $query->set( 'order', 'ASC' );
     }
 }
 
