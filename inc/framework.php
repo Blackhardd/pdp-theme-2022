@@ -554,7 +554,9 @@ function pdp_get_salons( $order = 'ASC', $lang = false, $city = false ){
 	$params = array(
 		'numberposts'   => -1,
 		'post_type'     => 'salon',
-		'order'         => $order
+		'orderby'       => 'meta_value',
+		'order'         => $order,
+        'meta_key'      => '_order_position'
 	);
 
 	if( $lang ){
@@ -902,6 +904,8 @@ add_action( 'pre_get_posts', 'pdp_set_salons_archive_query' );
 function pdp_set_salons_archive_query( $query ){
     if( !is_admin() && $query->is_post_type_archive( 'salon' ) && $query->is_main_query() ){
         $query->set( 'posts_per_page', -1 );
+	    $query->set( 'meta_key', '_order_position' );
+	    $query->set( 'orderby', 'meta_value' );
     }
 }
 
