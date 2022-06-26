@@ -236,11 +236,6 @@ function pdp_widgets_init(){
 require PDP_THEME_DIR . '/inc/framework.php';
 
 
-// Require theme filters.
-
-require PDP_THEME_DIR . '/inc/filters.php';
-
-
 // Require theme shortcodes.
 
 require PDP_THEME_DIR . '/inc/shortcodes.php';

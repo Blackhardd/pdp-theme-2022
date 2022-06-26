@@ -591,7 +591,7 @@ function pdp_get_salons_data( $city = false ){
 		$phone = carbon_get_post_meta( $salon->ID, 'phone' );
 		$instagram = carbon_get_post_meta( $salon->ID, 'instagram' );
 
-		if( $link && $lat && $lng ){
+		if( $lat && $lng ){
 			$salon_data = array(
 			    'id'                => $salon->ID,
 				'name'              => $salon->post_title,
