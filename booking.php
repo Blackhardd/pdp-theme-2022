@@ -22,7 +22,7 @@ $services = pdp_get_pricelist( $main_salon );
                         <select name="salon" data-icon="location" data-confirm="<?=__( 'Смена салона удалит все услуги из корзины. Вы уверенны?', 'pdp' ); ?>">
                             <?php foreach( $salons as $key => $salon ) : ?>
                                 <?php if( carbon_get_post_meta( $salon['id'], 'display_in_booking' ) === 'yes' ) : ?>
-                                    <option value="<?=$salon['id']; ?>" <?=isset( $_GET['salonId'] ) && intval( $_GET['salonId'] ) === $salon['id'] ? 'selected' : ( !isset( $_GET['salonId'] ) && $salon['id'] === $main_salon ? 'selected' : '' ); ?>><?="{$salon['city']}, {$salon['name']}"; ?></option>
+                                    <option value="<?=$salon['id']; ?>" <?=isset( $_GET['salonId'] ) && intval( $_GET['salonId'] ) === $salon['id'] ? 'selected' : ( !isset( $_GET['salonId'] ) && $salon['id'] === $main_salon ? 'selected' : ( !isset( $_GET['salonId'] ) && !$main_salon && $key === 0 ? 'selected' : '' ) ); ?>><?="{$salon['city']}, {$salon['name']}"; ?></option>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </select>
