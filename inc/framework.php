@@ -549,11 +549,11 @@ function pdp_get_salon_data( $id ){
 /**
  *  Getting salons
  */
-
 function pdp_get_salons( $order = 'ASC', $lang = false, $city = false ){
 	$params = array(
 		'numberposts'   => -1,
-		'post_type'     => 'salon'
+		'post_type'     => 'salon',
+        'order'         => $order
 	);
 
 	if( $lang ){
@@ -564,7 +564,7 @@ function pdp_get_salons( $order = 'ASC', $lang = false, $city = false ){
 	    $params['tax_query'] = [
 	        array(
 	            'taxonomy'  => 'city',
-                'field'     => 'name',
+                'field'     => 'term_id',
                 'terms'     => $city
             )
         ];
