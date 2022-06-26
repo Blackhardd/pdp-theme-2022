@@ -12,6 +12,8 @@ function pdp_city_salons_shortcode( $atts ){
 	$city_term = get_term( pll_get_term( $atts['city'] ) ) ? get_term( pll_get_term( $atts['city'] ) ) : get_term( $atts['city'] );
 	$salons = pdp_get_salons_data( $city_term->term_id );
 
+	var_dump( $city_term );
+
 	ob_start();
 	?>
 	<div class="salons-list">
