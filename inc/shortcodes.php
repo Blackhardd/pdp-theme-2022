@@ -9,7 +9,7 @@ function pdp_city_salons_shortcode( $atts ){
 		'city' => ''
 	), $atts, 'city_salons' );
 
-	$city_term = get_term( pll_get_term( $atts['city'] ) ) ? get_term( pll_get_term( $atts['city'] ) ) : get_term( $atts['city'] );
+	$city_term = pll_get_term( $atts['city'] ) ? get_term( pll_get_term( $atts['city'] ) ) : get_term( $atts['city'] );
 	$salons = pdp_get_salons_data( $city_term->term_id );
 
 	ob_start();
