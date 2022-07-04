@@ -193,6 +193,10 @@ select {
     margin-bottom: 36px;
 }
 
+#page-not-found {
+    margin-bottom: 0;
+}
+
 
 img {
     /* width: 100%; */
@@ -791,6 +795,10 @@ a.btn:not([href]) {
 
 body:not(.without-header) .site-content {
     padding: 46px 0;
+}
+
+body.error404 .site-content {
+    padding: 124px 0 138px;
 }
 
 
@@ -4533,6 +4541,43 @@ fieldset:disabled .booking-cart-item__button {
 
 
 /**
+ *  Page Not Found
+ */
+
+.page-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.page-not-found__icon {
+    margin-bottom: 42px;
+}
+
+.page-not-found__icon svg {
+    display: block;
+}
+
+.page-not-found__number {
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 122px;
+}
+
+.page-not-found__title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.page-not-found__action {
+    margin-top: 65px;
+}
+
+
+/**
  *  Footer
  */
 
@@ -6496,6 +6541,11 @@ fieldset:disabled .booking-cart-item__button {
 
     .vacancy-item__full-content h4 {
         text-align: center;
+    }
+
+
+    body.error404 .site-content {
+        padding: 76px 0 88px;
     }
 
 

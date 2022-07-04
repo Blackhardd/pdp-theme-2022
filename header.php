@@ -55,7 +55,7 @@
     <?php endif; ?>
 
     <main class="site-content">
-        <?php if( function_exists('yoast_breadcrumb') && !is_front_page() && !is_page_template( array( 'thank-you.php', 'links.php' ) ) ) : ?>
+        <?php if( function_exists('yoast_breadcrumb') && !is_front_page() && !is_page_template( array( 'thank-you.php', 'links.php' ) ) && !is_404() ) : ?>
             <section id="breadcrumbs">
                 <div class="container">
                     <?php yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); ?>
