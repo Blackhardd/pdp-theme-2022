@@ -84,7 +84,7 @@ class Booking {
     initCart(){
         this._cart = new Cart()
 
-        if(typeof this._cart.salon !== 'null' && !new URLSearchParams(window.location.search).get('salonId')){
+        if(this._cart.salon !== null && !new URLSearchParams(window.location.search).get('salonId')){
             const currentSalon = bookingData.salons.filter(salon => {
                 for(const [key, value] of Object.entries(salon)){
                     if(value == this._cart.salon){
@@ -106,7 +106,7 @@ class Booking {
                 this.$cartSalonSelect.dispatchEvent(new Event('change'))
             }
         }
-        else if(typeof this._cart.salon === 'null'){
+        else if(this._cart.salon === null){
             this._cart.salon = parseInt(this.$salonSelect.value)
         }
 

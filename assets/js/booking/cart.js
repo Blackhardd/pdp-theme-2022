@@ -27,9 +27,9 @@ class Cart {
     }
 
     loadFromStorage() {
-        const storage_data = localStorage.getItem('session_cart') ? JSON.parse( localStorage.getItem('session_cart') ) : this._data
+        const storage_data = JSON.parse( localStorage.getItem('session_cart') )
 
-        if(typeof storage_data.salon !== 'null'){
+        if(storage_data && storage_data.salon !== null){
             this._data = storage_data
         }
         else{
