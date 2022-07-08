@@ -106,8 +106,14 @@ class Booking {
                 this.$cartSalonSelect.dispatchEvent(new Event('change'))
             }
         }
-        else if(this._cart.salon === null){
+        else if(this._cart.salon === null && this.$salonSelect.value){
             this._cart.salon = parseInt(this.$salonSelect.value)
+        }
+        else{
+            this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+            this.$salonSelect.dispatchEvent(new Event('change'))
+            this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+            this.$cartSalonSelect.dispatchEvent(new Event('change'))
         }
 
         if(this._cart.hair){
