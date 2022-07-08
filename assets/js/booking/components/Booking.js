@@ -84,24 +84,36 @@ class Booking {
     initCart(){
         this._cart = new Cart()
 
-        if(this._cart.salon && !new URLSearchParams(window.location.search).get('salonId')){
+        if(!isNaN(this._cart.salon) && !new URLSearchParams(window.location.search).get('salonId')){
             const currentSalon = bookingData.salons.filter(salon => {
                 for(const [key, value] of Object.entries(salon)){
-                    if(value === this._cart.salon){
+                    if(value == this._cart.salon){
                         return true
                     }
                 }
             }).pop()
 
-            if(currentSalon){
+            if(currentSalon) {
                 this.$salonSelect.value = currentSalon[booking_i18n.lang]
                 this.$salonSelect.dispatchEvent(new Event('change'))
                 this.$cartSalonSelect.value = currentSalon[booking_i18n.lang]
                 this.$cartSalonSelect.dispatchEvent(new Event('change'))
             }
+            else{
+                this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+                this.$salonSelect.dispatchEvent(new Event('change'))
+                this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+                this.$cartSalonSelect.dispatchEvent(new Event('change'))
+            }
+        }
+        else if(this.$salonSelect.value){
+            this._cart.salon = parseInt(this.$salonSelect.value)
         }
         else{
-            this._cart.salon = this.$salonSelect.value
+            this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+            this.$salonSelect.dispatchEvent(new Event('change'))
+            this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+            this.$cartSalonSelect.dispatchEvent(new Event('change'))
         }
 
         if(this._cart.hair){
@@ -132,7 +144,7 @@ class Booking {
     }
 
     setSalon(id){
-        this._cart.salon = id
+        this._cart.salon = parseInt(id)
         this.renderCart()
         this.fetchServices()
 
