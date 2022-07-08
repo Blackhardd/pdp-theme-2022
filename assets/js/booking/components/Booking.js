@@ -100,9 +100,9 @@ class Booking {
                 this.$cartSalonSelect.dispatchEvent(new Event('change'))
             }
             else{
-                this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+                this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child').dataset.value
                 this.$salonSelect.dispatchEvent(new Event('change'))
-                this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+                this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child').dataset.value
                 this.$cartSalonSelect.dispatchEvent(new Event('change'))
             }
         }
@@ -110,9 +110,9 @@ class Booking {
             this._cart.salon = parseInt(this.$salonSelect.value)
         }
         else{
-            this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+            this.$salonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child').dataset.value
             this.$salonSelect.dispatchEvent(new Event('change'))
-            this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child')
+            this.$cartSalonSelect.value = this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child').dataset.value
             this.$cartSalonSelect.dispatchEvent(new Event('change'))
         }
 
