@@ -85,7 +85,6 @@ class Booking {
         this._cart = new Cart()
 
         if(this._cart.salon !== null && !new URLSearchParams(window.location.search).get('salonId')){
-            console.log('Salon is not null.')
             const currentSalon = bookingData.salons.filter(salon => {
                 for(const [key, value] of Object.entries(salon)){
                     if(value == this._cart.salon){
@@ -95,7 +94,6 @@ class Booking {
             }).pop()
 
             if(currentSalon) {
-                console.log('Setting salon from localization.')
                 this.$salonSelect.value = currentSalon[booking_i18n.lang]
                 this.$salonSelect.dispatchEvent(new Event('change'))
                 this.$cartSalonSelect.value = currentSalon[booking_i18n.lang]
@@ -104,8 +102,7 @@ class Booking {
             else{
                 const first_salon = parseInt(this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child').dataset.value)
 
-                console.log('Localization salon not found. Setting first.', first_salon)
-
+                this._cart.salon = first_salon
                 this.$salonSelect.value = first_salon
                 this.$salonSelect.dispatchEvent(new Event('change'))
                 this.$cartSalonSelect.value = first_salon
@@ -118,8 +115,7 @@ class Booking {
         else{
             const first_salon = parseInt(this.$salonSelect.closest('.select-wrapper').querySelector('.select-dropdown-item:first-child').dataset.value)
 
-            console.log('Just setting first salon.', first_salon)
-
+            this._cart.salon = first_salon
             this.$salonSelect.value = first_salon
             this.$salonSelect.dispatchEvent(new Event('change'))
             this.$cartSalonSelect.value = first_salon
