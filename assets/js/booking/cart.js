@@ -11,7 +11,6 @@ class Cart {
         }
 
         this.loadFromStorage()
-        this.saveToStorage()
     }
 
     onChange(action = () => {}){
@@ -28,7 +27,14 @@ class Cart {
     }
 
     loadFromStorage() {
-        this._data = localStorage.getItem('session_cart') ? JSON.parse( localStorage.getItem('session_cart') ) : this._data
+        const storage_data = localStorage.getItem('session_cart') ? JSON.parse( localStorage.getItem('session_cart') ) : this._data
+
+        if(typeof storage_data.salon !== 'null'){
+            this._data = storage_data
+        }
+        else{
+            this.deleteFromStorage()
+        }
     }
 
     deleteFromStorage() {
