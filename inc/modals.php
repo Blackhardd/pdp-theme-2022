@@ -8,6 +8,7 @@ add_action( 'wp_footer', 'pdp_add_booking_cart_mobile_modal' );
 
 function pdp_add_booking_cart_mobile_modal(){
 	if( !is_page_template( array( 'booking.php', 'links.php' ) ) ) : ?>
+
         <div class="modal modal--center" id="modal-booking-cart" aria-hidden="true">
             <div class="modal__dimmer" data-micromodal-close></div>
 
@@ -19,6 +20,7 @@ function pdp_add_booking_cart_mobile_modal(){
                 </div>
             </div>
         </div>
+
         <?php
     endif;
 }
@@ -32,6 +34,7 @@ add_action( 'wp_footer', 'pdp_add_booking_modal' );
 
 function pdp_add_booking_modal(){
     if( !is_page_template( array( 'booking.php', 'links.php' ) ) ) : ?>
+
         <div class="modal modal--center" id="modal-booking" aria-hidden="true">
             <div class="modal__dimmer" data-micromodal-close></div>
 
@@ -44,6 +47,7 @@ function pdp_add_booking_modal(){
                 </div>
             </div>
         </div>
+
         <?php
     endif;
 }
@@ -57,6 +61,7 @@ add_action( 'wp_footer', 'pdp_add_service_category_booking_modal' );
 
 function pdp_add_service_category_booking_modal(){
 	if( is_page_template( 'service-category.php' ) ){ ?>
+
 		<div class="modal modal--center" id="modal-service-category-booking" aria-hidden="true">
 			<div class="modal__dimmer" data-micromodal-close></div>
 
@@ -69,6 +74,7 @@ function pdp_add_service_category_booking_modal(){
                 </div>
             </div>
 		</div>
+
 		<?php
 	}
 }
@@ -83,6 +89,7 @@ add_action( 'wp_footer', 'pdp_add_gifts_order_modal' );
 function pdp_add_gifts_order_modal(){
     if( is_page_template( 'gift-cards.php' ) ){
         $gifts = carbon_get_the_post_meta( 'gifts' ); ?>
+
         <div class="modal" id="modal-gift-card">
             <div class="modal__dimmer" data-micromodal-close></div>
 
@@ -282,6 +289,7 @@ function pdp_add_gifts_order_modal(){
                 </div>
             </div>
         </div>
+
         <?php
     }
 }
@@ -309,6 +317,27 @@ function pdp_add_vacancy_apply_modal(){
         </div>
         <?php
     }
+}
+
+
+/**
+ * Cookie accept modal.
+ */
+add_action( 'wp_footer', 'pdp_add_cookie_accept_modal' );
+
+function pdp_add_cookie_accept_modal(){
+    $privacy_policy_url = get_privacy_policy_url();
+
+    if( !$_COOKIE['cookieaccept'] ) : ?>
+
+        <div class="cookie-acceptance">
+            <div class="cookie-acceptance__title"><?=sprintf( __( 'This site uses cookies. Read our %sprivacy policy%s.', 'pdp' ), "<a href='{$privacy_policy_url}'>", '</a>' ); ?></div>
+            <button class="btn btn--outline cookie-acceptance__button"><?=__( 'Ok', 'pdp' ); ?></button>
+        </div>
+
+    <?php
+
+    endif;
 }
 
 

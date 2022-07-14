@@ -18,6 +18,8 @@ jQuery(document).ready(async function($){
     await initVideoCaching()
     initVideoLazyLoading()
 
+    initCookieAcceptance()
+
     initViewportHeightFix()
 
 
@@ -512,6 +514,18 @@ jQuery(document).ready(async function($){
                 $video.classList.remove('lazy')
             })
         }
+    }
+
+    function initCookieAcceptance(){
+        if(!$('.cookie-acceptance').length) return
+
+        $('.cookie-acceptance').on('click', function(){
+            $(this).addClass('cookie-acceptance--hidden')
+
+            const date = new Date()
+            const expires_in = new Date(date.setMonth(date.getMonth() + 3))
+            document.cookie = "cookieaccept=true; max-age=" + expires_in.toUTCString()
+        })
     }
 
     function initViewportHeightFix(){

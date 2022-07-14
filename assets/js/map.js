@@ -190,7 +190,7 @@ function initMap(){
             })
         
             const infoWindow = new google.maps.InfoWindow({
-                pixelOffset: new google.maps.Size(135, 0),
+                pixelOffset: new google.maps.Size(135, 0)
             })
         
             mapData.salons.forEach((item, index) => createMarker(item))
