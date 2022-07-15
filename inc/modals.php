@@ -331,7 +331,7 @@ function pdp_add_cookie_accept_modal(){
     if( !$_COOKIE['cookieaccept'] ) : ?>
 
         <div class="cookie-acceptance">
-            <div class="cookie-acceptance__title"><?=sprintf( __( 'This site uses cookies. Read our %sprivacy policy%s.', 'pdp' ), "<a href='{$privacy_policy_url}'>", '</a>' ); ?></div>
+            <div class="cookie-acceptance__title"><?=sprintf( __( 'Этот сайт использует куки. Прочтите нашу %sполитику конфиденциальности%s.', 'pdp' ), "<a href='{$privacy_policy_url}'>", '</a>' ); ?></div>
             <button class="btn btn--outline cookie-acceptance__button"><?=__( 'Ok', 'pdp' ); ?></button>
         </div>
 
