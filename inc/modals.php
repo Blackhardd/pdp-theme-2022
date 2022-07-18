@@ -328,7 +328,7 @@ add_action( 'wp_footer', 'pdp_add_cookie_accept_modal' );
 function pdp_add_cookie_accept_modal(){
     $privacy_policy_url = get_privacy_policy_url();
 
-    if( !$_COOKIE['cookieaccept'] ) : ?>
+    if( empty( $_COOKIE['cookieaccept'] ) ) : ?>
 
         <div class="cookie-acceptance">
             <div class="cookie-acceptance__title"><?=sprintf( __( 'Этот сайт использует куки. Прочтите нашу %sполитику конфиденциальности%s.', 'pdp' ), "<a href='{$privacy_policy_url}'>", '</a>' ); ?></div>
