@@ -130,7 +130,8 @@ function pdp_scripts(){
 
 	wp_register_script( 'forms', PDP_THEME_URL . '/assets/js/forms.js', array( 'jquery' ), PDP_THEME_VERSION, true );
 	wp_localize_script( 'forms', 'formsData', array(
-		'ajaxUrl'       => admin_url( 'admin-ajax.php' )
+		'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
+		'phoneRegexp'   => carbon_get_theme_option( 'forms_phone_regex' )
 	) );
 
 	wp_enqueue_script( 'lazysizes', '//cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js', array(), PDP_THEME_VERSION );

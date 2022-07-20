@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
     const regexpEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
-    const regexpPhone = /^\+?3?8?(0\d{9})$/
+    const regexpPhone = new RegExp(formsData.phoneRegexp)
 
     const inputSelectors = 'input[type="text"],input[type="tel"],input[type="email"],.select-hidden-input input[type="hidden"]'
 

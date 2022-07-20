@@ -156,5 +156,7 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 		Field::make( 'text', 'forms_phone_mask', __( 'Маска', 'pdp' ) )
 			->set_default_value( '+{38} 000 000 00 00' ),
 		Field::make( 'text', 'forms_phone_placeholder', __( 'Плейсхолдер', 'pdp' ) )
-		     ->set_default_value( '+38 044 000 00 00' )
+		     ->set_default_value( '+38 044 000 00 00' ),
+		Field::make( 'text', 'forms_phone_regex', __( 'Регулярное выражение', 'pdp' ) )
+		     ->set_default_value( '/^\+?3?8?(0\d{9})$/' )
 	) );
