@@ -149,4 +149,12 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 	->add_tab( __( 'Уведомления', 'pdp' ), array(
 		Field::make( 'textarea', 'email_recipients', __( 'Получатели (через запятые)', 'pdp' ) ),
 		Field::make( 'image', 'email_logo', __( 'Логотип', 'pdp' ) )
+	) )
+	->add_tab( __( 'Формы', 'pdp' ), array(
+		Field::make( 'html', 'forms_phone_heading' )
+		     ->set_html( sprintf( '<h2>%s</h2>', __( 'Поле номера телефона', 'pdp' ) ) ),
+		Field::make( 'text', 'forms_phone_mask', __( 'Маска', 'pdp' ) )
+			->set_default_value( '+{38} 000 000 00 00' ),
+		Field::make( 'text', 'forms_phone_placeholder', __( 'Плейсхолдер', 'pdp' ) )
+		     ->set_default_value( '+38 044 000 00 00' )
 	) );

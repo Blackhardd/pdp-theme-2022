@@ -149,7 +149,9 @@ function pdp_scripts(){
 	wp_enqueue_style( 'style', PDP_THEME_URL . '/assets/css/index.min.css', array(), PDP_THEME_VERSION );
 	wp_enqueue_script( 'script', PDP_THEME_URL . '/assets/js/index.js', array( 'jquery', 'micromodal' ), PDP_THEME_VERSION, true );
 
-
+	wp_localize_script( 'script', 'pdp_frontend_data', array(
+		'phone_mask'    => carbon_get_theme_option( 'forms_phone_mask' )
+	) );
 
 	if( is_page_template( 'gift-cards.php' ) ){
 		wp_enqueue_style( 'swiper' );

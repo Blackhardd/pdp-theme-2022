@@ -6,7 +6,7 @@ wp_enqueue_script( 'imask' );
 
 <div class="input input--icon input--phone">
     <div class="input__wrap">
-        <input type="tel" name="phone" placeholder="+38 044 000 00 00<?=( $args['required'] ) ? '*' : ''; ?>" <?=( $args['required'] ) ? 'required' : ''; ?> <?=( $args['disabled'] ) ? 'disabled' : ''; ?>>
+        <input type="tel" name="phone" placeholder="<?=carbon_get_theme_option( 'forms_phone_placeholder' ); ?><?=( $args['required'] ) ? '*' : ''; ?>" <?=( $args['required'] ) ? 'required' : ''; ?> <?=( $args['disabled'] ) ? 'disabled' : ''; ?>>
 
         <div class="icon">
             <svg width="12" height="12" fill="none">

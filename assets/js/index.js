@@ -354,7 +354,7 @@ jQuery(document).ready(async function($){
     function initPhoneInputMask(){
         if($('input[type="tel"]').length){
             $('input[type="tel"]').each(function(index){
-                IMask($(this)[0], { mask: '+{38} 000 000 00 00' })
+                IMask($(this)[0], { mask: pdp_frontend_data.phone_mask })
             })
         }
     }
