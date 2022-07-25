@@ -76,6 +76,8 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 			->set_html( sprintf( '<h2>%s</h2>', __( 'Служебные страницы', 'pdp' ) ) ),
 		Field::make( 'select', 'thank_you_page', __( 'Страница «Спасибо»', 'pdp' ) )
 			->set_options( array( '' => __( 'Выберите страницу', 'pdp' ) ) + pdp_get_pages() ),
+		Field::make( 'select', 'booking_page', __( 'Страница записи', 'pdp' ) )
+		     ->set_options( array( '' => __( 'Выберите страницу', 'pdp' ) ) + pdp_get_pages() ),
 		Field::make( 'select', 'contacts_page', __( 'Страница контактов', 'pdp' ) )
 		     ->set_options( array( '' => __( 'Выберите страницу', 'pdp' ) ) + pdp_get_pages() )
 	) )
