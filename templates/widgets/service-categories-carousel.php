@@ -3,7 +3,7 @@
 wp_enqueue_style( 'swiper' );
 wp_enqueue_script( 'swiper' );
 
-$booking_page_id = get_option( 'booking_page' );
+$booking_page_id = get_option( '_booking_page' );
 $categories = pdp_get_service_categories();
 $current_language = pdp_get_current_language();
 
