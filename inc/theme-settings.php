@@ -150,7 +150,8 @@ Container::make( 'theme_options', 'PIED-DE-POULE' )
 	) )
 	->add_tab( __( 'Уведомления', 'pdp' ), array(
 		Field::make( 'textarea', 'email_recipients', __( 'Получатели (через запятые)', 'pdp' ) ),
-		Field::make( 'image', 'email_logo', __( 'Логотип', 'pdp' ) )
+		Field::make( 'image', 'email_logo', __( 'Логотип', 'pdp' ) ),
+		Field::make( 'text', 'telegram_bot_token', __( 'Токен Telegram бота', 'pdp' ) )
 	) )
 	->add_tab( __( 'Формы', 'pdp' ), array(
 		Field::make( 'html', 'forms_phone_heading' )

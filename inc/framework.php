@@ -487,20 +487,33 @@ function pdp_get_salon_cities(){
 
 
 /**
- *  Getting main salon
+ * Get main salon
+ *
+ * @return string
  */
-
 function pdp_get_main_salon(){
     return carbon_get_theme_option( 'main_salon' );
 }
 
 
 /**
- *  Getting salon pricelist URL
+ * Getting salon pricelist URL
+ *
+ * @return string
  */
-
 function pdp_get_salon_pricelist_url( $id ){
     return add_query_arg( 'salonId', $id, get_permalink( pll_get_post( 66 ) ) );
+}
+
+
+/**
+ * Get salon Telegram chat ID.
+ *
+ * @param string|integer $salon_id
+ * @return string|boolean
+ */
+function pdp_get_salon_telegram_chat_id( $salon_id ){
+    return get_post_meta( $salon_id, '_telegram_chat_id', true );
 }
 
 
@@ -509,10 +522,6 @@ function pdp_get_salon_pricelist_url( $id ){
  */
 
 function pdp_get_salon( $id ){
-	if( !$id ){
-		return false;
-	}
-
 	return get_post( $id );
 }
 
