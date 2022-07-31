@@ -524,7 +524,7 @@ jQuery(document).ready(async function($){
 
             const date = new Date()
             const expires_in = new Date(date.setMonth(date.getMonth() + 3))
-            document.cookie = "cookieaccept=true; max-age=" + expires_in.toUTCString()
+            document.cookie = "cookieaccept=true; path=/; max-age=" + expires_in.toUTCString()
         })
     }
 
